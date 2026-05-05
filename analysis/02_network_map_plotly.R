@@ -1,111 +1,101 @@
-# 02_network_map_plotly.R
-# Expert: Plotly Interactive Network Visualization
+# ==============================================================================
+# Script : 02_network_map_plotly.R
+# Projet : Contrat ENAP Network
+# Objectif : Réseau interactif des certifications (VD)
+# ==============================================================================
 
 library(tidyverse)
-library(igraph)
 library(plotly)
+library(igraph)
 library(htmlwidgets)
 
-# 1. Load Data
-df <- read_csv("data/processed/digital_flows.csv")
+# --- Configuration ---
+TARGET_YEAR <- 2020
 
-# Sélection de l'année 2020 (ou la plus récente disponible si 2020 est vide)
-target_year <- 2020
-df_year <- df %>% filter(year == target_year)
+# --- Chargement des données ---
+df <- read_csv("/home/hubcad25/opubliq/repos/contrat_enap_network/data/processed/digital_flows.csv")
 
-if(nrow(df_year) == 0) {
-  target_year <- max(df$year)
-  df_year <- df %>% filter(year == target_year)
-}
-
-# 2. Préparation des Nœuds
-# On calcule le volume total d'exports reçus par chaque pays (destination)
-exports_received <- df_year %>%
-  group_by(ccode2) %>%
-  summarise(total_export_in = sum(`digital exports`, na.rm = TRUE), .groups = "drop") %>%
-  rename(ccode = ccode2)
-
-nodes_info <- df_year %>%
-  select(ccode = ccode1, country = country1, model = model1) %>%
-  distinct() %>%
-  left_join(exports_received, by = "ccode") %>%
-  mutate(total_export_in = replace_na(total_export_in, 0))
-
-# 3. Préparation des Arêtes (Certifications uniquement)
-edges_df <- df_year %>%
+# 1. Liens de certification (VD)
+links_data <- df %>%
+  filter(year == TARGET_YEAR) %>%
   filter(is_certified_state == 1) %>%
-  select(from = ccode1, to = ccode2)
+  select(from = country1, to = country2, exports = `digital exports`)
 
-# Création de l'objet igraph pour le layout
-g <- graph_from_data_frame(d = edges_df, vertices = nodes_info, directed = TRUE)
+# 2. Données des pays (Nœuds)
+# On agrège les exports totaux envoyés pour dimensionner les bulles
+nodes_data <- df %>%
+  filter(year == TARGET_YEAR) %>%
+  group_by(country1) %>%
+  summarise(
+    model = first(model1),
+    total_exports_sent = sum(`digital exports`, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  rename(name = country1)
 
-# On ne garde que les pays qui ont au moins un lien (ou tous ? l'utilisateur dit "bulles uniques")
-# Utilisons un layout Fruchterman-Reingold pour la clarté
-set.seed(42)
-layout <- layout_with_fr(g)
-nodes_info$x <- layout[, 1]
-nodes_info$y <- layout[, 2]
+# --- Création du graphe ---
+# On s'assure d'avoir tous les pays présents dans les liens
+all_countries <- unique(c(links_data$from, links_data$to))
+nodes_data <- nodes_data %>% filter(name %in% all_countries)
 
-# 4. Construction du Graphique Plotly
+g <- graph_from_data_frame(d = links_data, vertices = nodes_data, directed = TRUE)
 
-# Préparation des segments pour les arêtes
+# Calcul du layout
+coords <- layout_with_fr(g)
+nodes_coords <- as.data.frame(coords)
+colnames(nodes_coords) <- c("x", "y")
+nodes_coords$name <- V(g)$name
+nodes_coords$model <- V(g)$model
+nodes_coords$total_exports <- V(g)$total_exports_sent
+
+# Préparation des segments pour Plotly
 edge_shapes <- list()
-for(i in 1:nrow(edges_df)) {
-  v1 <- nodes_info %>% filter(ccode == edges_df$from[i])
-  v2 <- nodes_info %>% filter(ccode == edges_df$to[i])
+for(i in 1:nrow(links_data)) {
+  v1 <- which(nodes_coords$name == links_data$from[i])
+  v2 <- which(nodes_coords$name == links_data$to[i])
   
-  if(nrow(v1) > 0 && nrow(v2) > 0) {
-    edge_shapes[[i]] <- list(
+  if(length(v1) > 0 && length(v2) > 0) {
+    edge_shape <- list(
       type = "line",
-      line = list(color = "#D3D3D3", width = 0.5),
-      x0 = v1$x, y0 = v1$y,
-      x1 = v2$x, y1 = v2$y,
+      line = list(color = "#cccccc", width = 0.5),
+      x0 = nodes_coords$x[v1],
+      y0 = nodes_coords$y[v1],
+      x1 = nodes_coords$x[v2],
+      y1 = nodes_coords$y[v2],
       layer = "below"
     )
+    edge_shapes[[i]] <- edge_shape
   }
 }
 
-# Couleurs pour les modèles
-# On définit une palette basée sur les préférences utilisateur
-model_colors <- c(
-  "open"        = "#00A087", # green
-  "localization" = "#f0695a", # red
-  "safe harbor"  = "#0072B2"  # blue
-)
+# --- Visualisation Plotly ---
 
-# Tracé des nœuds
-p <- plot_ly(
-  nodes_info, 
-  x = ~x, 
-  y = ~y, 
-  type = 'scatter', 
-  mode = 'markers',
-  color = ~model,
-  colors = model_colors,
-  marker = list(size = 12, line = list(width = 1, color = "white")),
-  text = ~paste0(
-    "<b>Pays :</b> ", country, 
-    "<br><b>Modèle :</b> ", model, 
-    "<br><b>Exports reçus :</b> ", round(total_export_in, 2), " M$"
-  ),
-  hoverinfo = 'text'
-) %>%
-  layout(
-    title = list(
-      text = paste("Réseau de Certification Numérique (", target_year, ")"),
-      x = 0.05,
-      font = list(family = "Nunito Sans", size = 24)
+p <- plot_ly() %>%
+  add_trace(
+    data = nodes_coords,
+    x = ~x, y = ~y,
+    type = "scatter",
+    mode = "markers",
+    color = ~model,
+    colors = c("open" = "#00A087", "safe harbor" = "#0072B2", "localization" = "#f0695a"),
+    marker = list(
+      size = ~log10(total_exports + 1) * 5 + 5,
+      line = list(color = "#ffffff", width = 1)
     ),
-    xaxis = list(title = "", showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
-    yaxis = list(title = "", showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
+    text = ~paste("Pays:", name, 
+                  "<br>Modèle:", model,
+                  "<br>Exports totaux:", round(total_exports, 2)),
+    hoverinfo = "text"
+  ) %>%
+  layout(
+    title = list(text = paste("Réseau de certification en", TARGET_YEAR), x = 0.05),
+    paper_bgcolor = "#ffffff",
+    plot_bgcolor = "#ffffff",
+    xaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
+    yaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
     shapes = edge_shapes,
-    showlegend = TRUE,
-    legend = list(orientation = "h", x = 0.5, xanchor = "center", y = -0.05),
-    plot_bgcolor = "white",
-    paper_bgcolor = "white",
-    margin = list(l = 50, r = 50, b = 100, t = 100)
+    margin = list(t = 100)
   )
 
 # Sauvegarde
-saveWidget(p, "analysis/network_map_2020.html", selfcontained = TRUE)
-print("Graphique sauvegardé dans analysis/network_map_2020.html")
+saveWidget(p, "/home/hubcad25/opubliq/repos/contrat_enap_network/analysis/network_map_2020.html")

@@ -1,131 +1,101 @@
-# 01_descriptive_network_stats.R
-# Expert: ggplot2 network analysis
+# ==============================================================================
+# Script : 01_descriptive_network_stats.R
+# Projet : Contrat ENAP Network
+# Objectif : Statistiques descriptives du réseau de certification (VD)
+# ==============================================================================
 
 library(tidyverse)
-library(showtext)
-library(sysfonts)
+library(clessnize)
 library(scales)
-library(colorspace)
 
-# Setup fonts
-font_add_google("Nunito Sans", "nunito")
-showtext_auto()
+# --- Chargement des données ---
+df <- read_csv("/home/hubcad25/opubliq/repos/contrat_enap_network/data/processed/digital_flows.csv")
 
-# Dashboard Colors
-dashboard_colors <- list(
-  green  = "#00A087",
-  red    = "#f0695a",
-  blue   = "#0072B2",
-  yellow = "#E69F00",
-  purple = "#CC79A7",
-  gray   = "grey70",
-  # Opubliq
-  opubliq_red       = "#f0695a",
-  opubliq_lightblue = "#0d8491",
-  opubliq_teal      = "#56d1d7",
-  opubliq_darkblue  = "#012326",
-  # Repensons Lévis
-  repensons_yellow = "#f6b600",
-  repensons_blue   = "#193e62"
-)
-
-# Theme Dashboard Light
-theme_dashboard_light <- function(base_size = 32) {
-  theme_minimal(base_size = base_size, base_family = "nunito") %+replace%
-    theme(
-      text = element_text(color = "grey20", lineheight = 0.3),
-      plot.title = element_text(face = "bold", hjust = 0, size = base_size * 1.2),
-      plot.subtitle = element_text(size = base_size * 0.9, margin = margin(b = 10)),
-      plot.caption = element_text(hjust = 1, size = base_size * 0.8, lineheight = 0.45),
-      panel.grid = element_blank(),
-      axis.ticks = element_blank(),
-      axis.line = element_blank(),
-      legend.position = "bottom",
-      legend.box = "horizontal",
-      plot.margin = margin(15, 15, 15, 15),
-      strip.text = element_text(face = "bold"),
-      panel.spacing = unit(1.5, "lines")
-    )
-}
-
-# 1. Load Data
-df <- read_csv("data/processed/digital_flows.csv") %>%
-  mutate(
-    is_certified_state = as.numeric(is_certified_state),
-    `digital exports` = as.numeric(`digital exports`)
-  )
-
-# --- 1. Evolution du nombre de liens de certification ---
-p1_data <- df %>%
+# --- 1. Évolution du nombre de liens de certification ---
+cert_evolution <- df %>%
   group_by(year) %>%
-  summarise(n_cert = sum(is_certified_state, na.rm = TRUE))
+  summarise(total_certifications = sum(is_certified_state, na.rm = TRUE))
 
-p1 <- ggplot(p1_data, aes(x = year, y = n_cert)) +
-  geom_line(color = dashboard_colors$blue, size = 1.5) +
-  geom_point(color = dashboard_colors$blue, size = 4) +
-  scale_y_continuous(expand = expansion(mult = c(0, 0.1))) +
+p1 <- ggplot(cert_evolution, aes(x = year, y = total_certifications)) +
+  geom_line(color = "#0072B2", linewidth = 1) +
+  geom_point(color = "#0072B2") +
   labs(
-    title = "Évolution des liens de certification numérique",
-    subtitle = "Nombre total de paires d'États avec certification active",
-    x = "",
-    y = "Nombre de liens\n",
-    caption = str_wrap("Source: Données de flux numériques et certifications.", width = 80)
+    title = "Évolution du nombre total de certifications",
+    subtitle = "Nombre de liens dirigés de certification actifs par année",
+    x = "Année",
+    y = "Nombre de certifications"
   ) +
-  theme_dashboard_light()
+  clessnize::theme_clean_light()
 
-ggsave("analysis/evolution_certifications.png", p1, width = 12, height = 8, dpi = 300)
+ggsave("/home/hubcad25/opubliq/repos/contrat_enap_network/analysis/plots/certification_evolution.png", p1, width = 10, height = 6)
 
-
-# --- 2. Comparaison des flux d'exports ---
-# Filtrer les exports > 0 pour l'échelle log
-p2_data <- df %>%
-  filter(`digital exports` > 0) %>%
-  mutate(status = if_else(is_certified_state == 1, "Certifié", "Non-certifié"))
-
-p2 <- ggplot(p2_data, aes(x = status, y = `digital exports`, fill = status)) +
-  geom_boxplot(alpha = 0.7, outlier.alpha = 0.1) +
+# --- 2. Comparaison des flux d'exports (Log Scale) ---
+# On compare les paires certifiées vs non-certifiées
+p2 <- ggplot(df %>% filter(`digital exports` > 0), aes(x = as.factor(is_certified_state), y = `digital exports`)) +
+  geom_boxplot(aes(fill = as.factor(is_certified_state)), outlier.alpha = 0.2) +
   scale_y_log10(labels = scales::label_number()) +
-  scale_fill_manual(values = c("Certifié" = dashboard_colors$green, "Non-certifié" = dashboard_colors$gray)) +
+  scale_fill_manual(values = c("0" = "#aaaaaa", "1" = "#00A087"), labels = c("Non-certifié", "Certifié")) +
   labs(
     title = "Volume d'exports numériques et certification",
-    subtitle = "Comparaison des flux (échelle log) entre paires certifiées et non-certifiées",
-    x = "",
-    y = "Digital Exports (Log10)\n",
-    caption = str_wrap("Note: Seuls les flux supérieurs à zéro sont inclus.", width = 80)
+    subtitle = "Comparaison en échelle logarithmique",
+    x = "Statut de certification du lien",
+    y = "Digital Exports (log10)",
+    fill = "Lien certifié"
   ) +
-  guides(fill = "none") +
-  theme_dashboard_light()
+  clessnize::theme_clean_light()
 
-ggsave("analysis/exports_vs_certification.png", p2, width = 12, height = 8, dpi = 300)
+ggsave("/home/hubcad25/opubliq/repos/contrat_enap_network/analysis/plots/exports_vs_certification.png", p2, width = 10, height = 6)
 
-
-# --- 3. Analyse simple de la réciprocité ---
-# On regarde par année la proportion de liens réciproques
+# --- 3. Analyse de la réciprocité ---
+# Un lien est réciproque si A certifie B ET B certifie A la même année
 reciprocity_data <- df %>%
-  filter(is_certified_state == 1) %>%
-  select(year, ccode1, ccode2) %>%
-  mutate(dyad = map2_chr(ccode1, ccode2, ~paste(sort(c(.x, .y)), collapse = "-"))) %>%
-  group_by(year, dyad) %>%
-  summarise(n = n(), .groups = "drop") %>%
+  select(year, country1, country2, is_certified_state) %>%
+  inner_join(
+    df %>% select(year, country1, country2, is_certified_state),
+    by = c("year" = "year", "country1" = "country2", "country2" = "country1"),
+    suffix = c("_orig", "_dest")
+  ) %>%
+  filter(is_certified_state_orig == 1) %>%
   group_by(year) %>%
   summarise(
-    mutual = sum(n == 2),
-    asymmetric = sum(n == 1),
-    total = mutual + asymmetric,
-    prop_mutual = mutual / total
+    total_links = n(),
+    reciprocal_links = sum(is_certified_state_dest, na.rm = TRUE),
+    reciprocity_rate = reciprocal_links / total_links
   )
 
-p3 <- ggplot(reciprocity_data, aes(x = year, y = prop_mutual)) +
-  geom_area(fill = dashboard_colors$opubliq_teal, alpha = 0.3) +
-  geom_line(color = dashboard_colors$opubliq_lightblue, size = 1.2) +
-  scale_y_continuous(labels = scales::percent, limits = c(0, 1), expand = expansion(mult = c(0, 0.05))) +
+p3 <- ggplot(reciprocity_data, aes(x = year, y = reciprocity_rate)) +
+  geom_area(fill = "#00A087", alpha = 0.3) +
+  geom_line(color = "#00A087", linewidth = 1) +
   labs(
-    title = "Réciprocité du réseau de certification",
-    subtitle = "Proportion de liens mutuels (A certifie B ET B certifie A) parmi les paires liées",
-    x = "",
-    y = "% de liens mutuels\n",
-    caption = str_wrap("La réciprocité indique une reconnaissance mutuelle des standards numériques.", width = 80)
+    title = "Taux de réciprocité des certifications",
+    subtitle = "Proportion de certifications mutuelles (A <-> B)",
+    x = "Année",
+    y = "Taux de réciprocité"
   ) +
-  theme_dashboard_light()
+  clessnize::theme_clean_light()
 
-ggsave("analysis/reciprocity_certification.png", p3, width = 12, height = 8, dpi = 300)
+ggsave("/home/hubcad25/opubliq/repos/contrat_enap_network/analysis/plots/reciprocity_evolution.png", p3, width = 10, height = 6)
+
+# --- 4. Proportion de certification par model1 ---
+p4 <- df %>%
+  filter(!is.na(model1)) %>%
+  group_by(model1) %>%
+  summarise(
+    total = n(),
+    certified = sum(is_certified_state, na.rm = TRUE),
+    prop = certified / total
+  ) %>%
+  ggplot(aes(x = reorder(model1, -prop), y = prop, fill = model1)) +
+  geom_col() +
+  scale_y_continuous(labels = scales::percent) +
+  scale_fill_manual(values = c("open" = "#00A087", "safe harbor" = "#0072B2", "localization" = "#f0695a")) +
+  labs(
+    title = "Proportion de liens certifiés par modèle",
+    subtitle = "Basé sur le modèle de l'exportateur (model1)",
+    x = "Modèle",
+    y = "% de liens certifiés"
+  ) +
+  clessnize::theme_clean_light() +
+  theme(legend.position = "none")
+
+ggsave("/home/hubcad25/opubliq/repos/contrat_enap_network/analysis/plots/cert_prop_by_model.png", p4, width = 10, height = 6)
