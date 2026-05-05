@@ -1,0 +1,2223 @@
+Received: 12 January 2024
+
+Revised: 25 January 2024
+
+Accepted: 29 January 2024
+
+DOI: 10.1111/roie.12735
+
+S P E C I A L I S S U E PA P E R
+
+Governing personal data and trade in
+digital services
+Martina F. Ferracane1
+
+Erik van der Marel2
+
+1
+
+Robert Schuman Center for Advanced
+Studies, European University Institute
+(EUI), Fiesole, Italy
+
+Abstract
+The regulation of personal data varies widely between
+
+2
+
+European Center for Advanced Research
+in Economics and Statistics, Université
+Libre de Bruxelles (ULB), Brussels,
+Belgium
+Correspondence
+Erik van der Marel, European Center for
+Advanced Research in Economics and
+Statistics, Université Libre de Bruxelles
+(ULB), Brussels, Belgium.
+Email: erik.van.der.marel@ulb.be
+
+countries, with potential effects on digital services. We
+develop a taxonomy for the regulation of cross-border
+personal data transfers and systematically categorize 143
+countries in one of the three data models identified,
+which are an open data model, a conditional model,
+and a control model. Using a gravity model, we then
+study if sharing a similar regulatory model between trading partners is associated with trade in digital services.
+Moreover, we assess if enacting a comprehensive data
+
+Funding information
+World Bank Group
+
+protection law impacts the relationship between data
+models and digital services. The open model of data
+transfers appears to support data flows, regardless of the
+the presence of a domestic regime for personal data. We
+find a negative effect on digital services for the conditional model that prescribes conditions that need to be
+fulfilled to transfer personal data across borders. Interestingly, we find that this negative effect is more than
+offset by the presence of a comprehensive data protection law. Finally, the control model, which has strict
+conditions to transfer personal data outside the country,
+only has a negative and significant effect when a domestic regime for data protection is implemented. The latter
+is likely to reflect the cost burden of firms to comply
+with these regulations as the trust channel might not
+
+Rev Int Econ. 2025;33:243–264.
+
+wileyonlinelibrary.com/journal/roie
+
+© 2024 John Wiley & Sons Ltd.
+
+243
+
+FERRACANE and VAN DER MAREL
+
+be effective in countries characterized by government
+surveillance.
+KEYWORDS
+
+data flows, digital services trade, regulatory frameworks
+J E L C L A S S I F I C AT I O N
+
+F13, F50, L86, L88
+
+1
+
+I NT RO DU CT ION
+
+Digital deliverable services have grown fastest among all international trade in goods and services,
+creating benefits for the global economy. The tradability of digital services relies heavily on the
+ability of companies to transfer data across borders (WTO, 2018). In turn, the capacity to move
+data across countries by firms is affected by rules governing data. Yet, these rules are increasingly
+fragmented across the globe. This article examines the digital trade consequences of such data
+fragmentation.
+Specifically, this article examines if sharing a similar regulatory model for cross-border data
+transfers and a data protection law between trading partners is associated with trade in digital services. Rules governing the cross-border transfer of personal data follow roughly three
+different regulatory models, each based on different features: one based on open transfers of
+data, a second based on conditional transfers with safeguards in place, and a third based on
+government-controlled transfers. This regulatory divergence is likely to distort trade in digital services across the global economy, which we study. We also study the interaction of these models
+with the presence of a comprehensive data protection law between country-pairs. Such a policy
+might, on the one the hand, create compliance costs for businesses, but on the other, it can raise
+trust for consumers.
+To shed light on our research question, we perform a structural gravity model in which we
+assess the digital services trade effects for partner-countries that share one of the three data
+models.
+Before we perform our gravity model, we first identify the governance models for personal data
+that countries have applied over the years for 143 countries. For each country, we assess the model
+implemented with regards to the cross-border transfers of personal data. We show that there are
+large differences between and within regions of the world. The open model, often associated with
+the U.S. approach, is dominant in North America, whereas the control model followed by China
+is prevalent in East Asia. The conditional model, which in large part is driven by the EU, has
+become widely used in Latin America, Oceania, and to some extent in Africa.
+In a second step, we identify which countries have implemented comprehensive regulations
+regarding the protection of personal data. While these obligations may increase the costs of doing
+business for firms, mainly in the form of compliance costs, they nonetheless could instil trust in
+the digital economy. In addition, as most countries have implemented a domestic regime of data
+protection inspired by the European Union model (the so-called Brussels-effect), the presence of
+a comprehensive data protection law could have a positive impact on trade by lowering regulatory
+heterogeneity. Therefore, in this article, we also examine how such regulations of data protection
+interact with each model for the cross-border transfer of data.
+
+14679396, 2025, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/roie.12735 by Bibliotheque De L'Universite, Wiley Online Library on [28/04/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+244
+
+245
+
+Our gravity model applies a state-of-the art approach in which we use stringent fixed effects
+between country-pairs interacted over time. The reason we can apply such demanding method
+is because our gravity model makes use of a so-called difference-in-difference component (DiD)
+in which we make a distinction between digital versus non-digital services. Our binary indicator
+of whether a sector is classified as a digital service or not is interacted with our main variables of
+interest, namely whether countries share one of the three data models. A significant result on any
+of these variables of interest would indicate that having a data model in common affects countries
+trading patterns towards more or less digital services trade between them.
+The basic premise of such empirical approach is illustrated in Figure 1 which shows three
+staggered DiD plots of the normalized ratio of digital trade over non-digital trade, shown on the
+vertical axis, for each data model, with the horizontal dashed line indicating its threshold. The
+vertical axis plots the 5 years before and the 6 years after the introduction of a data model shared
+by any two partner countries in our country sample (measured by the vertical dashed line). The
+open model clearly shows an upward trend towards a higher ratio of digital over non-digital services, which has become significant for countries sharing this model after their starting point.
+An opposing trend is visible for the conditional model with weak significance, whereas the control model no significant pattern can be revealed. Our gravity model allows us to estimate these
+outcomes in a more structured setting.
+This article contributes to several strands of the literature assessing the relationship between
+cross-border data flows and international trade, from an economic and legal vantage point. To
+start with the latter, Aaronson and Leblond (2018), Gao (2018), and Azmeh et al. (2019) describe
+the existing data realms from a legal and political economy perspective, which are centred around
+the three global actors, namely the U.S., EU, and China. We use this literature as a starting
+point for our categorization to assess which model is implemented by 143 countries around the
+world, as illustrated in Figure A1. We also identify whether each country has implemented a
+comprehensive data protection framework, as illustrated in Figure A2.
+We combine the legal side of this literature with recent empirical economic works assessing
+the extent to which regulatory data policies affect international trade in digital services. Specifically, Ferracane and van der Marel (2021) examine how regulatory restrictions related to the
+cross-border flow and domestic processing of data affect trade in digital services of countries
+imposing them. Recent works by Sun and Trefler (2023) relates regulatory restrictions in data to
+observed data streams. Other works examine the economic outcomes of privacy, such as Acquisti
+et al. (2016). This article differs from these works by not taking the restrictive nature of regulations as a unit measure, but taking into account the wider regulatory framework for data (i.e.,
+data model) that countries have implemented.
+The results of our empirical analysis show that trading partners sharing the open model
+exhibit positive trade correlations in digital services, whereas country-pairs sharing the conditional model show a negative one, in line with Figure 1. When our proxy for data protection is
+interacted with each data model variable, the latter outcome gets muted: the negative effect of
+sharing the conditional model is offset by the positive impact arising from sharing a comprehensive data protection law. Countries having such a protection framework in place are therefore
+likely to pre-empt the negative cost effect of applying safeguard conditions for cross-border data
+transfers. Yet, data protection does not have any meaningful outcome on countries sharing the
+open model and shows a significant negative outcome for the control model, in line with our
+expectations.
+We believe our findings are relevant for policymakers, and especially relevant for developing countries given their potential to benefit from participating in digital services trade. Many
+
+14679396, 2025, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/roie.12735 by Bibliotheque De L'Universite, Wiley Online Library on [28/04/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+FERRACANE and VAN DER MAREL
+
+FERRACANE and VAN DER MAREL
+
+F I G U R E 1 Difference-in-difference plots of digital trade over non-digital trade. Source: authors.
+Note: Plots are performed using time-to-event variables staggered across each data model that country-pairs share
+as of year −1. Regressions are performed with PPML using standard gravity controls and country-times and
+country-pair fixed effects, clustered by country-pair-year. The dependent variable is the ratio of
+digital-over-non-digital trade. Treated units exhibit the measured event for each panel 5 years before (lags) and
+6 years after (leads). Definitions of the open, conditional, and control model of data are explained in Table 1. Each
+dot represents the coefficient for the corresponding dummy used in the DiD regressions. The shaded area shows
+95% confidence intervals of the coefficients. Trade data is sourced from TiVA given the squared matrix format of
+this database, which enables to make plots for the control model. Countries where the event of not sharing a
+similar data model are served as controls. [Colour figure can be viewed at wileyonlinelibrary.com]
+
+developing countries are able to trade digital services with lower trade costs thanks to the very
+nature of the Internet, which reduces the burden of distance (see e.g., Lendle et al., 2016). Countries that are in the process of defining their regulatory framework for personal data might
+therefore consider how each model correlates with trade in digital services and their ability to
+export these services.
+The remainder of the article is organized as follows. The next section discusses the previous
+literature in more depth and shows the link between our work and the work on the political economy and legal analysis of the three models for data governance. Section 3 defines the three data
+models, including the framework for data protection by providing a descriptive analysis of their
+implementation globally. Section 4 sets out the baseline gravity model, provides our empirical
+results, and performs several robustness checks. Section 5 concludes.
+
+2
+
+PREVIOUS LITERATURE
+
+The empirical literature examining the link between regulations in data and international trade
+is still fairly limited, particularly when focusing on personal data. In part, this lack is explained
+
+14679396, 2025, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/roie.12735 by Bibliotheque De L'Universite, Wiley Online Library on [28/04/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+246
+
+247
+
+by the difficulty in collecting extensive policy information on the regulatory rules in countries,
+especially for novel regulations in the case of data. However, in recent years, some significant
+progress have been made to categorize data-related regulatory policies, upon which we build.
+Early efforts to collect regulatory information on data can be found in Ferracane et al. (2018),
+in which the authors created the Digital Trade Estimates Database and the Digital Trade Restrictiveness Index (DTRI).1 A subset of this index covers restrictions for personal data in an extensiveformat. The updated and expanded version of this dataset, which has been published by the
+European University Institute, has been used as the basis of this paper (Ferracane, 2022). Other
+databases that cover data-related restrictions are the OECD’s Digital Services Trade Restrictiveness Index (DSTRI) as discussed by Ferencz (2019) and the Services Trade Restrictiveness Index
+(STRI) developed by the World Bank-WTO (i.e., Borchert et al., 2019).2 The common denominator
+of these indicators is that the data policies covered are considered as restrictive for international
+trade in digital services, as empirically shown in Ferracane et al. (2020), Ferracane and van der
+Marel (2021) and Sun and Trefler (2023).
+Insofar as these data restrictions are part of a broader governance framework, a separate
+strand of the literature closer to our work identifies the defining features of the existing global
+data realms in which these restrictions evolve. Aaronson and Leblond (2018) show that data
+governance frameworks across the globe take shape in three distinct models, namely the ones
+developed by the U.S., the EU, and China. The authors discuss data-related governance with
+respect to trade policy, including a reference to the treatment of data privacy. Gao (2018) presents
+the contrasting policy approaches between China and the US with respect to digital trade and
+data, while Gao (2019) delves deeper into the defining features of the China model with regards
+to data regulations.
+Other recent works also make note of the differing global governance models for data. These
+works either discuss the three data models in relation to the political economy of digital policies
+in the US (Azmeh et al., 2019) or from the perspective of the WTO (Hodson, 2019; Sen, 2018). In
+addition, works by Mattoo and Meltzer (2018) and Meltzer (2019) discuss the data governance
+framework of the EU specifically and the potential for regulatory cooperation between the EU and
+US. These authors also point to the distinction between restrictive policies inhibiting digital trade
+and other associated regulatory policies related to data protection. More recently, Bradford (2019,
+2023) has delved into the legal and technical aspects that categorize the three competing digital
+governance models led by the EU, the U.S., and China.
+This study contributes to this mainly legal literature by analyzing the digital trade impacts for
+a wide set of countries that have implemented one of the three data models, as shown in Figure A1
+and as will be discussed in the next section. The economic literature is silent on the potential
+economic trade effects following the implementation of these regulatory governance models for
+data. Only a few studies have analyzed at more aggregate level the potential economic effects of
+one specific model only, namely the one of the EU, called the General Data Protection Regulation
+(GDPR). Christensen et al. (2013) uses calibration techniques to evaluate the impact of the GDPR
+proposal on small and medium-sized enterprises (SMEs) and concludes that SMEs that use data
+intensively are likely to incur substantial costs in complying with these new rules. Another study
+by Bauer et al. (2013) uses a computable general equilibrium model to estimate the economic
+impact of the GDPR and finds a reduction of trade between the EU and the rest of the world.
+At a more general level, this article also contributes to a broader strand of the literature covering research on the economics of privacy, including the economic value and consequences of
+protecting and disclosing personal data. For instance, Acquisti et al. (2016) provides a general
+overview of the theoretical and empirical research on the economics of privacy and shows how
+
+14679396, 2025, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/roie.12735 by Bibliotheque De L'Universite, Wiley Online Library on [28/04/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+FERRACANE and VAN DER MAREL
+
+FERRACANE and VAN DER MAREL
+
+T A B L E 1 Description of global data models for cross-border transfers.
+Data model
+
+Cross-border transfers
+
+Open (OP)
+
+Self-certification; self-assessment schemes; ex-post accountability; trade
+agreements and plurilateral/bilateral arrangements as only means to
+regulate data transfers.
+
+Conditional (CO)
+
+Conditions to be fulfilled ex-ante, including adequacy of the recipient
+country, binding corporate rules (BCR), standard contract clauses
+(SCCs), data subject consent, and codes of conduct, among others.
+
+Control (GC)
+
+Strict conditions including bans to transfer data cross borders; local
+processing requirements; ad hoc government authorization for data
+transfers; infrastructure requirements; ex-ante security assessments.
+
+Source: authors.
+
+the economic analysis of privacy has evolved over time and has become increasingly nuanced
+and complex with advancements in information technology. Zhang et al. (2020) provides insights
+about the impact of comprehensive data protection regulation on online customers’ trust.
+As such, this article combines varying strands of the literature regarding data restrictions, data
+protection, as well as data governance.
+
+3
+
+G LO BA L DATA MODE LS
+
+We start by developing a taxonomy to identify the three governance models for cross-border transfer of personal data based on their specific features. We focus on cross-border transfers of personal
+data given that this issue is the most relevant regulatory issue for digital technologies and trade
+(Goldfarb & Trefler, 2018). Having this taxonomy, we then systematically categorize 143 countries
+under one of the three data models. In addition, we also explore whether these countries have
+implemented a comprehensive regime for data protection.
+While personal data regulations diverge widely between countries, it is nonetheless possible
+to identify three main approaches with distinctive characteristics: one based on open transfers
+and processing of data, a second based on conditional data transfers, and a third based on controlled data transfers. These three models for data governance have become a reference for many
+countries around the world when defining their data policies.3
+
+3.1
+
+Taxonomy
+
+Table 1 summarizes the main features of the three data models.
+The open model, led by the U.S., is characterized by the absence of restrictions on cross-border
+data flows and the absence of a comprehensive framework for personal data protection that
+applies to domestic data processing. With regards to cross-border data transfers, countries following the open model usually rely on a baseline set of privacy principles, leaving to companies the
+flexibility to self-regulate on a voluntary basis. Under this model, firms usually remain accountable for how personal data is treated, including when it is transferred to a recipient in a third
+country. However, several countries following this model simply lack any accountability on how
+personal data is treated after it crosses borders.
+
+14679396, 2025, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/roie.12735 by Bibliotheque De L'Universite, Wiley Online Library on [28/04/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+248
+
+249
+
+The conditional model, pioneered by the EU, is characterized by the presence of certain conditions for the transfers and processing of personal data. Countries following this model take a
+comprehensive and fundamental rights approach to data protection with preventative regulation.
+Regarding cross-border data transfers, countries applying this model impose certain conditions to
+be fulfilled ex-ante for the transfer of personal data across borders. These conditions can be quite
+diverse, including the consent of the data subject, the use of specific legal mechanisms such as
+binding corporate rules, the compliance with specific codes of conduct, or the requirement that
+the recipient countries have a regime for data protection considered as ‘adequate’.
+Finally, the third model is the one that China has implemented and is based on controlled
+transfers and processing of data. This model is more common among countries where the concept
+of the right to privacy is quite recent. Countries following this model tend to link data privacy
+to cybersecurity, given that, generally, data regulation is elevated to a matter of national security
+(e.g., see Gao, 2019). Countries following this model are characterized by extensive restrictions on
+cross-border data transfers and by systematic control of personal data by national authorities. For
+cross-border transfers of personal data, this model imposes strict restrictions, which include the
+local processing of data or the ex-ante authorization by the government to transfer data abroad
+following a security assessment.
+
+3.2
+
+Data protection
+
+We also assess each country’s implementation of a comprehensive data protection regime. Such a
+framework includes the consent of the data subject for data collection, extensive rights, including
+the right to access, modify and delete data, and, in most cases, the establishment of data protection
+authorities. While these obligations may increase the costs of doing business for firms, mainly in
+compliance costs, these policies are also expected to instil trust in consumers with regard to the
+digital economy.
+In addition, as most countries have implemented a domestic regime of data protection inspired
+by the European Union model (the so-called Brussels-effect), a comprehensive data protection
+law could positively impact trade by lowering regulatory heterogeneity. When a country does not
+implement such a regime, data subjects have limited rights regarding how their personal data is
+handled. It is unusual that a country lacks any measures related to privacy, although this is still the
+case in some least developed economies. When a comprehensive regime is lacking, it is common
+for certain sensitive categories of data, such as in finance and health, to have sectoral rules on
+data processing. In these cases, data protection is usually treated as a consumer protection right.
+
+3.3
+
+Global developments
+
+The choice of countries to implement one of the three data models has dramatically changed over
+the years. In 1990, most countries had an open model for data transfers, in part because many
+countries did not have any data regulations yet in place (Figure 2). This has changed significantly
+over the years. Following the introduction of the EU’s Data Protection Directive (DPD) in 1995,
+many more countries have replaced the open model of data with a conditional regime for data
+transfer, which usually went hand-in-hand with a comprehensive data protection law applied
+domestically. In 2000, 80% of the countries in our sample still had an open data model in place,
+which in 2022 was diminished to a share of 22%. In 2022, the conditional model represented
+
+14679396, 2025, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/roie.12735 by Bibliotheque De L'Universite, Wiley Online Library on [28/04/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+FERRACANE and VAN DER MAREL
+
+FERRACANE and VAN DER MAREL
+
+F I G U R E 2 Three global data models developments & data protection regimes (1990–2022). Source: authors’
+calculations. [Colour figure can be viewed at wileyonlinelibrary.com]
+
+the most popular data regime for cross-border data transfer with 60% of countries in our sample
+having implemented the framework. In 2000, this share was still 20%.
+A share of 17% of countries our sample follow the control model, representing the least favored
+regulatory option for countries currently. Figure A1 in the annex shows most countries applying
+this governance model are located in Asia, such as Indonesia, Russia, Vietnam, Kazakhstan and
+Uzbekistan, as well as some countries in Africa and the Middle East, including Türkiye. In 2000,
+the share of countries with a control model was still less than 1%.
+The picture of countries implementing a data protection framework has also significantly
+changed over the last three decades. In 2000, around two thirds of the countries in our sample did
+not have a data protection framework in place. This figure rose to almost 75% in 2022. Besides the
+U.S., countries without any data protection rules in place in 2022 were mostly placed in Africa,
+South Asia, and Latin America, in addition to Vietnam, Cambodia, and others in Central America. Even though this share is small, it nonetheless covers about one third of the world population,
+as shown in Figure A2.4
+
+4
+
+EMPIRICAL SPEC IFICAT ION, DATA, AND RESULTS
+
+This section presents the baseline regression specification using the gravity model. In doing so,
+we estimate whether countries sharing one of the three data models is correlated with greater or
+lower trade in digital services compared to the benchmark of countries implementing a dissimilar
+data model. The empirical strategy makes use of a binary variable between the exporting and
+importing country, varying over time, which indicates whether country-pairs in our sample share
+the same data model measured with a value equal to one. We assign a value of zero if they don’t.
+Because of its dyadic nature, this indicator resembles many other conventional time-varying
+bilateral gravity variables, such as whether countries share an FTA or are member of the WTO.
+Yet, the way in which we categorize data frameworks as our variable of interest looks closer to
+the indicator developed by La Porta et al. (2008), which measures whether countries share similar legal origins, and which is divided into a French, German, and Scandinavian legal origin for
+countries around the world. The interpretation of our variable is therefore closer to this latter
+
+14679396, 2025, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/roie.12735 by Bibliotheque De L'Universite, Wiley Online Library on [28/04/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+250
+
+251
+
+work. The legal origin variable was later used in a gravity context by Melitz and Toubal (2019) in
+which the authors assess whether any common legal origin has a trade impact which was found
+to be positive and significant.
+In a similar manner, we first perform a baseline regression to assess whether having the same
+data model in place affects bilateral digital services trade between two countries. After that, we
+examine the individual impact of each of the three data models as an extended baseline regression. In a third step, we also consider whether countries that have implemented a data protection
+regime and allow for interactions of this regime with the data model indicators.
+
+4.1
+
+Baseline regression
+
+Equation (1) formally measures whether sharing the same data model between partner countries,
+irrespective of the models they follow, is correlated with digital services trade. In particular, we
+regress bilateral trade in services between country o (exporter) and country d (importer) over t
+(time) on our dyadic indicator reflecting whether countries share the same data model. Hence,
+the empirical baseline model takes the following form:
+DSXodst = exp [𝜃1 DModst + 𝛿ods + 𝛿odt + 𝛿ost + 𝛿dst ] ∗ 𝜀odst .
+
+(1)
+
+The first thing to note in Equation (1) is that our variable of interest DModst varies by sector
+as well, which is denoted by subscript s. This is because we interact our data model indicator
+with another dummy indicating whether sector s is a digital service sector. The reason for doing
+so is that it is unlikely that regulatory models for data affect all sectors equally. Policy changes
+on cross-border transfers of data, or more specifically, the switch from an open to a conditional
+or control data regime, are likely to be felt disproportionately more in sectors reliant on the
+cross-border flow of data, which effectively are digital services sectors. The categorization of sectors as digital is explained further below. Suffice it to say now that our trade variable, DSXodst ,
+similarly varies by exporter, importer, year, and sector and takes all services sectors, i.e. digital
+and non-digital, into account.
+In the next step, we split up the DModst term into the three data models. The regression therefore identifies the trade effect of having in place one of the three data models between partner
+country o and d. Because they are entered separately in this extended regression, each of these
+terms gives a separate coefficient result. In doing so, the second empirical baseline model formally
+takes the following form:
+DSXodst = exp [𝜃1 OPodst + 𝜃2 COodst + 𝜃3 GCodst + 𝛿ods + 𝛿odt + 𝛿ost + 𝛿dst ] ∗ 𝜀odst .
+
+(2)
+
+The terms OPodst , RSodst and GCodst stand for the open, conditional, and control data model,
+respectively. Note again that we allow both the dependent and independent variables to vary by
+sector, by country-pair and year. A lag of 2 years is applied to all policy variables to make our
+estimations more exogenous.
+The terms 𝛿ods , 𝛿odt , 𝛿ost , and 𝛿dst refer to the set of fixed effects by exporter-importer and
+sector, as well as the multilateral resistance terms for both exporter and importer multiplied by
+sector, and finally by exporter-importer and year, respectively. The convenient feature of setting
+this battery of fixed effects, which come on the back of including the sectoral dimension by way
+of our sector-level dummy in our gravity model, is that it subsumes all country-pair-year-varying
+
+14679396, 2025, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/roie.12735 by Bibliotheque De L'Universite, Wiley Online Library on [28/04/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+FERRACANE and VAN DER MAREL
+
+FERRACANE and VAN DER MAREL
+
+gravity variables such as sharing an RTA, membership of the WTO, and being member of the
+EU, among others. Note however that due to the inclusion of the sector-level dummy, the interpretation of the gravity results slightly alters in the sense that any significant outcome indicates
+a change of digital services trade flows relative to non-digital services trade because of the policy
+change. Essentially, our empirical specification makes use of a so-called DiD component. Finally,
+𝜀odst is the residual term.
+The model is estimated with PPML following standard practise with fixed effects as recommended by Santos Silva and Tenreyro (2006) in addition to Baier and Bergstrand (2007), Anderson
+et al. (2015, 2018), Piermartini and Yotov et al. (2016), as well as Head and Mayer (2014) and Yotov
+(2012). By doing so, Fally (2015) shows that the estimated fixed effects correspond exactly to the
+terms required by the structural model. We check for possible non-existence of estimates (Santos
+Silva & Tenreyro, 2010). We utilize the procedures developed by Dai et al. (2014) which address
+the use of many dyadic fixed effects needed to consistently identify the impact of time-varying
+policies. Furthermore, regressions are estimated with robust standard error clustered by
+country-pair-year. This three-way clustering effects follows the work by Egger and Tarlea (2015).
+
+4.2
+
+The data
+
+The dependent variable measuring services trade, DSXodst , is taken from the International Trade
+and Production Database for Estimation (ITPD-E) (Borchert et al., 2021). The ITPD-E is constructed using administrative data and, therefore, does not include information estimated by any
+statistical techniques, unlike other trade data sources such as OECD TiVA or the WTO-OECD
+BaTiS. Another advantage of ITPD-E is that it covers many countries based on reported data,
+in particular developing countries. This is important as we cover many non-OECD countries in
+Asia, Central and Latin America, and Africa. The choice for this database comes, however with
+a trade-off as it covers only trade data from 2000 to 2019. Yet, these 20 years represent a period
+within which most of the policy changes took place, as illustrated in Figure 1.
+To select our list of digital sectors, we use different categories of digital services for a
+more nuanced analysis. First, the OECD-WTO-IMF Handbook on Measuring Digital Trade
+(OECD-WTO-IMF, 2020) separates digital trade into two (overlapping) categories of sectors, distinguishing between digitally ordered and digitally delivered trade. Because the former is more
+difficult to measure, and because the handbook concludes that only services can be digitally delivered, we focus on digitally delivered services. The handbook defines digitally delivered services
+as comprising all services except those closely tied to goods trade such as transport, processing of
+physical inputs owned by others, maintenance and repair of goods, travel and construction. This
+scope of sectors is admittedly broad.
+An alternative indicator for assessing sectors as digital is based on the proxy developed by
+Ferracane and van der Marel (2021) who use an indicator of “data-intensity” for each services
+sector, which are in reality the ratio of software expenditures to labour costs for each sector. Using
+U.S. data, the sectors with the highest software-to-labour (S/L) ratios are telecommunications,
+computer services, information services, finance, and insurance.
+We further refine this categorization by examining how reliant sectors are on the cross-border
+flow of data. While no sector-specific information on data flows between countries exists, one
+way to get a sense of which sectors are most reliant on the cross-border flows of data is to refer
+to the list of companies that decided to get a certification under the Privacy Shield Framework
+(PS) maintained by the U.S. Department of Commerce that enables U.S. companies to process
+
+14679396, 2025, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/roie.12735 by Bibliotheque De L'Universite, Wiley Online Library on [28/04/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+252
+
+253
+
+European citizens’ data. The Privacy Shield Framework forms a legal agreement for regulating the
+exchange of personal data flows between two data models of the world’s largest bilateral digital
+service trade flows, namely that of the EU’s GDPR and the open model by the U.S.5
+We expect that companies that signed up for the PS would be more reliant on cross-border
+transfers of personal data. This list of companies includes information on their primary sector
+activity. Most companies are active in a service sector. The sectoral shares of covered companies
+can be compared to all U.S. firms using the US Census, indicating the relative importance of each
+sector. Appendix Table A1 reports the number of firms registered under the PS, the total number
+of firms surveyed in the US Census, and the share of US firms that decided to join the PS for each
+sector, respectively. Sectors are manually concorded between the two sets of data. We find that
+business services, healthcare, media and entertainment, education and travel services should also
+be considered in the list of digital services sectors.6
+Appendix Table A2 provides the final selection of digital services sectors, starting with the narrowest sectoral scope while gradually expanding. We develop four alternative groupings selecting
+the sectors that are relatively more digital-intense based on the approaches presented above.7 We
+use all four definitions of digital services sectors (i.e. Dig 1-4) in our regressions, and therefore
+develop four different sector-level dummies. The final three columns of the table report the results
+of the three approaches for assessing sectors as digital.
+
+4.3
+
+Results
+
+The results of the baseline regressions are reported in Table 2. As said, we first regress Equation (1)
+in which the variable of interest measures whether country-pair has any of the three data models
+in common, irrespective of the model. Columns 1–4 correspond to the four groupings of digital
+services sectors following Table A2. We find a positive and statistically significant effect of sharing
+the same data model on digital services only when using the broadest definition of digital services
+(column 4). We do not find a significant effect on any narrower definitions of digital services trade
+(columns 1–3). Surprisingly, column 1 even reports a negative coefficient sign.
+Further, Table 3 reports the results of the extended baseline regression in which we assess
+the three data models separately. The results show varying levels of significance and signs on
+T A B L E 2 Baseline regressions results.
+(1)
+
+(2)
+
+(3)
+
+(4)
+
+Dig 1
+
+Dig 2
+
+Dig 3
+
+Dig 4
+
+−0.000
+
+0.012
+
+0.013
+
+0.039**
+
+(0.982)
+
+(0.482)
+
+(0.465)
+
+(0.028)
+
+FE o-d-s
+
+Yes
+
+Yes
+
+Yes
+
+Yes
+
+FE o-d-t
+
+Yes
+
+Yes
+
+Yes
+
+Yes
+
+FE o-s-t
+
+Yes
+
+Yes
+
+Yes
+
+Yes
+
+FE d-s-t
+
+Yes
+
+Yes
+
+Yes
+
+Yes
+
+Observations
+
+500,763
+
+500,763
+
+500,763
+
+500,763
+
+TRADE
+
+DM (same data model)
+
+Note: *, **, and *** denote 10%, 5% and 1% significance levels with p-values in parenthesis.
+
+14679396, 2025, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/roie.12735 by Bibliotheque De L'Universite, Wiley Online Library on [28/04/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+FERRACANE and VAN DER MAREL
+
+FERRACANE and VAN DER MAREL
+
+T A B L E 3 Extended baseline regressions results.
+(1)
+
+(2)
+
+(3)
+
+(4)
+
+Dig 1
+
+Dig 2
+
+Dig 3
+
+Dig 4
+
+0.142***
+
+0.126***
+
+0.146***
+
+0.093**
+
+(0.006)
+
+(0.007)
+
+(0.001)
+
+(0.030)
+
+−0.141***
+
+−0.102**
+
+−0.120***
+
+−0.014
+
+(0.005)
+
+(0.022)
+
+(0.005)
+
+(0.734)
+
+0.090
+
+0.142
+
+0.152
+
+0.033
+
+(0.571)
+
+(0.356)
+
+(0.322)
+
+(0.833)
+
+FE o-d-s
+
+Yes
+
+Yes
+
+Yes
+
+Yes
+
+FE o-d-t
+
+Yes
+
+Yes
+
+Yes
+
+Yes
+
+FE o-s-t
+
+Yes
+
+Yes
+
+Yes
+
+Yes
+
+FE d-s-t
+
+Yes
+
+Yes
+
+Yes
+
+Yes
+
+Observations
+
+500,763
+
+500,763
+
+500,763
+
+500,763
+
+TRADE
+
+MODEL OP
+
+MODEL CO
+
+MODEL GC
+
+Note: *, **, and *** denote 10%, 5% and 1% significance levels with p-values in parenthesis.
+
+the coefficient results. For starters, the open model gives a highly significant outcome on all four
+specifications of digital services sectors. It therefore suggests that country-pairs that share an open
+framework for the transfer of personal data across border show greater levels of trade in digital
+services between partner countries. The significance of this results weakens somewhat for the
+broadest grouping of digital sectors, as reported in column 4. The result is in line with the trend
+found in the first panel of Figure 1.
+In contrast, the coefficient results for the conditional model shows a negative and significant
+sign. This negative outcome is significant in the first three groupings of digital services sectors,
+while the broadest grouping shows an insignificant result. Interestingly, comparing the last column of both tables leads to the conclusion that the positive and significant result found in Table 1
+was entirely driven by the open model, whereas in previous columns the results between the open
+and conditional model canceled out with each other.
+Finally, the government control model provides for all four groupings positive yet insignificant coefficient results. This is surprising given that the control model has strict requirements to
+process data locally, including stringent rules to transfer data across borders, that are associated
+with higher trade cost for digital services as shown in Ferracane and van der Marel (2021). A possible explanation is that trade in digital services between these countries is not entirely driven by
+economic reasons but could be motivated by political ties. This would also explain why countries
+switch to this model despite the higher costs it entails for data processing.
+In economic terms the significance of the coefficients on both the open and conditional models
+is relatively substantial. Taking the expected value of the most conservative estimates across the
+four different digital sector groupings, the trade results for digital services are 10% and 11%, respectively. This means that country-pairs sharing the open model experienced a 10% faster increase in
+trade in digital services with respect to non-digital services, such as transport and construction,
+compared to countries sharing dissimilar data models.
+
+14679396, 2025, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/roie.12735 by Bibliotheque De L'Universite, Wiley Online Library on [28/04/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+254
+
+4.4
+
+255
+
+Data protection regime
+
+A further extension of our baseline model is to assess whether the presence of a comprehensive
+data protection regime in both countries has any differential effect on digital services trade. We
+do so by creating an interaction variable that multiplies the three dummies for each data model
+with another dummy that evaluates whether countries have applied a comprehensive law for data
+protection. Our estimated equation becomes as follows:
+DSXodst = exp [𝜃1 MODELodst + 𝜃2 MODELodst ∗ Protodst + 𝛿ods + 𝛿odt + 𝛿ost + 𝛿dst ] ∗ 𝜀odst .
+
+(3)
+
+The term MODELodst represents the vector in which the three data models, OPodst , RSodst and
+GCodst are covered as outlined in Equation (2). The variable Protodst denotes whether country-pairs
+share a comprehensive data protection law. On the one hand, a data protection regime could
+increase costs for firms because of compliance; one the other hand it could support trade by
+instilling trust or reducing the costs of regulatory heterogeneity. Here too we allow the interaction variable to vary by sector, in addition to country-pair and year. A lag of 2 years is also applied
+on the data protection variable.
+Table 4 reports the results. The results for the three models remain generally unchanged.
+Yet, we find interesting additional findings for the interaction variables. First of all, this dummy
+does not show any significant result when interacted with the open model. Hence, the fact that
+country-pairs following an open model also share a comprehensive data protection regime does
+not appear to affect trade in digital services. Interestingly, however, the interaction variable for the
+conditional model with our data protection dummy comes out strongly positive with the coefficient size in all four columns being large and becoming more sizable when broadening the scope
+of digital sectors. Therefore, it indicates that the negative effects of the conditional model for
+cross-border flows are offset by the presence of a strong data protection law in place domestically.
+In column 4 this negative effect is entirely compensated.
+The interactions for the government control model are negative and strongly significant with a
+large coefficient size. One potential explanation is that when countries implement strict controls
+on the transfers of data, consumers lack trust in the digital economy because the government
+has a wide degree of discretion in accessing personal data. In this situation, strict controls on
+data transfers are usually justified by security and public order rationales. The digital economy
+becomes a tool for enabling surveillance and the presence of a comprehensive data protection
+law would not be enough to generate trust in the digital economy. As a result, firms would be
+left to deal with the additional compliance costs connected with the conditional regime without
+benefitting from the trust component derived from this framework.
+
+4.5
+
+Robustness checks
+
+We provide several robustness checks to make sure our baseline results hold. We do this for both
+Equations (2) and (3). We apply our series of checks only to one grouping of digital services,
+namely the third specification (Dig 3). This grouping leaves out the charges for IPRs and some
+personal services, which have a low rate of software-over-labour ratios but includes market-driven
+services that are more reliant on digital technologies for their delivery as they are classified as
+digital deliverable services.8
+In the first robustness check, we modify our clustering level. Despite the dataset is in a panel,
+which requires us to apply a three-way clustering level of origin–destination-year, we now apply a
+sectoral dimension so that we cluster by origin–destination-sector. The reason for doing so is that
+
+14679396, 2025, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/roie.12735 by Bibliotheque De L'Universite, Wiley Online Library on [28/04/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+FERRACANE and VAN DER MAREL
+
+FERRACANE and VAN DER MAREL
+
+T A B L E 4 Extended baseline regression with interactions.
+(1)
+
+(2)
+
+(3)
+
+(4)
+
+Dig 1
+
+Dig 2
+
+Dig 3
+
+Dig 4
+
+0.153***
+
+0.134***
+
+0.150***
+
+0.111**
+
+(0.007)
+
+(0.008)
+
+(0.002)
+
+(0.020)
+
+−0.015
+
+0.013
+
+0.037
+
+−0.001
+
+(0.789)
+
+(0.799)
+
+(0.452)
+
+(0.980)
+
+−0.291***
+
+−0.340***
+
+−0.398***
+
+−0.390***
+
+(0.001)
+
+(0.000)
+
+(0.000)
+
+(0.000)
+
+0.160**
+
+0.259***
+
+0.304***
+
+0.406***
+
+(0.047)
+
+(0.001)
+
+(0.000)
+
+(0.000)
+
+0.170
+
+0.224
+
+0.232
+
+0.113
+
+(0.271)
+
+(0.124)
+
+(0.112)
+
+(0.455)
+
+−0.658**
+
+−0.740***
+
+−0.747***
+
+−0.758***
+
+(0.013)
+
+(0.004)
+
+(0.004)
+
+(0.005)
+
+FE o-d-s
+
+Yes
+
+Yes
+
+Yes
+
+Yes
+
+FE o-d-t
+
+Yes
+
+Yes
+
+Yes
+
+Yes
+
+FE o-s-t
+
+Yes
+
+Yes
+
+Yes
+
+Yes
+
+FE d-s-t
+
+Yes
+
+Yes
+
+Yes
+
+Yes
+
+Observations
+
+500,763
+
+500,763
+
+500,763
+
+500,763
+
+TRADE
+
+MODEL OP
+
+MODEL OP * Prot
+
+MODEL CO
+
+MODEL CO * Prot
+
+MODEL GC
+
+MODEL GC * Prot
+
+Note: *, **, and *** denote 10%, 5% and 1% significance levels with p-values in parenthesis.
+
+there may be trade in some digital services sectors between country pairs that are not independently distributed. This could be the case, for instance, when country-pairs share a better digital
+enabling environment, such as digital infrastructure compared to other country pairs. In addition
+to the pair-fixed effects (over time), including a sector-level dimension in the clustering would
+ensure that standard errors are not inconsistent. However, we lose the clustering by year, which
+otherwise accounts for the non-independence between the two periods analyzed, i.e. before and
+after a country pair share a similar data model. Table 5 in Column (1) reports the results, which
+remain significant, albeit weakly, for the regulatory safeguard model.
+The second and subsequent robustness checks add a pair-trend fixed effects to the model.
+To do so, we drop the pair-time fixed effects. The difference between a trend and time effects
+between country pairs is that the former covers for any pair-specific linear trends over time
+(rather than by year) which may affect the choice of countries to choose a specific regulatory data
+model, and therefore trade. For example, it might be that an upward global trend of data flows
+affecting many countries at the same time, and therefore also between an exporter-importer pair,
+may have an influence on the extent to which they trade digital services. If so, the significance of
+the coefficient results would be biased.
+When doing so, we are forced to include the pair-specific time dummies such as PTA and
+WTO, which are sourced from the USITC’s Dynamic Gravity Dataset (Gurevich & Herman, 2018).
+For the PTA variable, we include PTAs in services in our regressions given that we use trade
+
+14679396, 2025, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/roie.12735 by Bibliotheque De L'Universite, Wiley Online Library on [28/04/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+256
+
+257
+
+T A B L E 5 Robustness checks for extended baseline regressions results.
+(1)
+
+(2)
+
+(3)
+
+(4)
+
+Dig 3
+
+Dig 3
+
+Dig 3
+
+Dig 3
+
+0.146**
+
+0.215**
+
+0.215***
+
+0.215***
+
+(0.043)
+
+(0.041)
+
+(0.000)
+
+(0.007)
+
+−0.120*
+
+−0.052
+
+−0.052
+
+−0.052
+
+(0.089)
+
+(0.593)
+
+(0.339)
+
+(0.491)
+
+0.152
+
+0.095
+
+0.095
+
+0.095
+
+(0.494)
+
+(0.725)
+
+(0.568)
+
+(0.696)
+
+0.093**
+
+0.093***
+
+0.093***
+
+(0.024)
+
+(0.001)
+
+(0.006)
+
+−0.186
+
+−0.186
+
+−0.186
+
+(0.699)
+
+(0.564)
+
+(0.531)
+
+0.180
+
+0.180***
+
+0.180*
+
+(0.190)
+
+(0.006)
+
+(0.068)
+
+TRADE
+
+MODEL OP
+
+MODEL CO
+
+MODEL GC
+
+PTA services
+
+WTO
+
+EU
+
+FE o-d-s
+
+Yes
+
+Yes
+
+Yes
+
+Yes
+
+FE o-d-t
+
+Yes
+
+No
+
+No
+
+No
+
+FE o-s-t
+
+Yes
+
+Yes
+
+Yes
+
+Yes
+
+FE d-s-t
+
+Yes
+
+Yes
+
+Yes
+
+Yes
+
+FE o-d-trend
+
+No
+
+Yes
+
+Yes
+
+Yes
+
+Cluster
+
+o-d-s
+
+o-d
+
+o-d-t
+
+o-d-s
+
+Observations
+
+500,763
+
+569,935
+
+569,935
+
+569,935
+
+Note: *, **, and *** denote 10%, 5% and 1% significance levels with p-values in parenthesis.
+
+in services (note both digital and non-digital) as our dependent variable. For this exercise, we
+replicate applying the pair-trend effects with alternative clustering methods. First, we start by
+clustering by country-pairs only of which the results are reported in column (2) of Table 5. In there,
+the coefficient results for the open data model remains positive and significant. The result for
+the conditional model loses its significance, although the coefficient sign remains negative. The
+government-control model remains insignificant. For the gravity controls, only PTAs in services
+comes out as significant and positive. The results on the three data models remains the same when
+applying country-pair-time clustering (column 3) and country-pair-sector clustering (column 4).
+We replicate the same robustness checks for the interaction regressions as defined in
+Equation (3). We therefore start by applying the alternative country-pair-sector clustering of
+which the results are reported in column (1) of Table 6. Interestingly, the result on the main variable of interest is now much weaker for the open model when controlling for the data protection
+regimes that country-pairs have in place. This indicates that the benefits of having an open model
+in place are reduced for those countries that in addition apply a data protection regime. The
+results for the conditional and closed model remain largely intact with this alternative clustering
+method. The results remain consistent when applying the pair-trend specific effects instead of
+
+14679396, 2025, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/roie.12735 by Bibliotheque De L'Universite, Wiley Online Library on [28/04/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+FERRACANE and VAN DER MAREL
+
+FERRACANE and VAN DER MAREL
+
+T A B L E 6 Robustness checks for extended baseline regressions results with interactions.
+(1)
+
+(2)
+
+(3)
+
+(4)
+
+Dig 3
+
+Dig 3
+
+Dig 3
+
+Dig 3
+
+0.150*
+
+0.245**
+
+0.245***
+
+0.245***
+
+(0.060)
+
+(0.038)
+
+(0.006)
+
+(0.000)
+
+0.037
+
+−0.061
+
+−0.061
+
+−0.061
+
+(0.660)
+
+(0.585)
+
+(0.513)
+
+(0.287)
+
+−0.398***
+
+−0.349**
+
+−0.349***
+
+−0.349***
+
+(0.004)
+
+(0.023)
+
+(0.006)
+
+(0.001)
+
+0.304**
+
+0.309***
+
+0.309***
+
+0.309***
+
+(0.014)
+
+(0.007)
+
+(0.003)
+
+(0.001)
+
+0.232
+
+0.167
+
+0.167
+
+0.167
+
+(0.317)
+
+(0.499)
+
+(0.463)
+
+(0.313)
+
+−0.747**
+
+−0.639**
+
+−0.639***
+
+−0.639*
+
+(0.026)
+
+(0.014)
+
+(0.006)
+
+(0.076)
+
+0.090**
+
+0.090***
+
+0.090***
+
+(0.028)
+
+(0.007)
+
+(0.001)
+
+−0.201
+
+−0.201
+
+−0.201
+
+(0.674)
+
+(0.496)
+
+(0.533)
+
+0.193
+
+0.193**
+
+0.193***
+
+(0.147)
+
+(0.048)
+
+(0.003)
+
+TRADE
+
+MODEL OP
+
+MODEL OP * Prot
+
+MODEL CO
+
+MODEL CO * Prot
+
+MODEL GC
+
+MODEL GC * Prot
+
+PTA services
+
+WTO
+
+EU
+
+FE o-d-s
+
+Yes
+
+Yes
+
+Yes
+
+Yes
+
+FE o-d-t
+
+Yes
+
+No
+
+No
+
+No
+
+FE o-s-t
+
+Yes
+
+Yes
+
+Yes
+
+Yes
+
+FE d-s-t
+
+Yes
+
+Yes
+
+Yes
+
+Yes
+
+FE o-d-trend
+
+No
+
+Yes
+
+Yes
+
+Yes
+
+Cluster
+
+o-d-s
+
+o-d
+
+o-d-t
+
+o-d-s
+
+Observations
+
+500,763
+
+569,935
+
+569,935
+
+569,935
+
+Note: *, **, and *** denote 10%, 5% and 1% significance levels with p-values in parenthesis.
+
+the time fixed effects (column 2) and when applying alterative clustering methods with this trend
+effect (columns 3 and 4).
+
+5
+
+CO N C LU S I O N
+
+The regulation of cross-border data transfers remains a controversial issue in the international
+trade arena, including in the on-going plurilateral discussions on e-commerce at the WTO and
+in regional negotiations. Evidence assessing the impact of the different models of regulations of
+data remains scarce, particular with respect to personal data. This article aims to fill this gap and
+provide evidence to inform the regional and global discussions on data policies.
+
+14679396, 2025, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/roie.12735 by Bibliotheque De L'Universite, Wiley Online Library on [28/04/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+258
+
+259
+
+We use a gravity model to assess if sharing a similar regulatory model between trading partners regarding the cross-border transfer of personal data and having enacted a comprehensive
+data protection law is associated with trade in digital services. Rules governing the cross-border
+transfer of personal data follow roughly three different regulatory models, each based on different features: one based on open transfers of data, a second based on conditional transfers with
+safeguards in place, and a third based on government-controlled transfers.
+We expect that this regulatory divergence would distort trade in digital services across the
+global economy, but our findings show that this is not always the case. In fact, we find that sharing
+an open data model supports trade in digital services, while we find a negative effect of sharing the
+conditional model. This finding is in line with the literature that highlights the costs connected
+with complying with ambitious data protection regulations like the GRPR. In our analysis, we find
+no evidence with respect to the control model, despite previous studies and government surveys
+highlighting the high costs connected with local processing requirements. A possible explanation
+is that trade in digital services between countries following the control model may not entirely
+driven by economic reasons but by political ties.
+We also study the interaction of the different models applied to cross-border transfers with
+the adoption of a comprehensive data protection law by the country-pair. On the one hand, such
+a policy might create additional costs for businesses because of compliance; on the other hand,
+it can raise trust for consumers and could reduce regulatory heterogeneity—especially given that
+the EU data protection law has been adopted in a considerable number of countries. We find no
+differential effect with regards to the open model. However, the interaction for the conditional
+model with our data protection dummy comes out strongly positive. This indicates that the negative effects of the conditions attached of this model are muted by the presence of a strong data
+protection regime in place domestically. This offsetting effect is large.
+Finally, the interactions for the government control model are negative and strongly significant with a large coefficient size. One potential explanation is that when countries implement
+strict controls on the transfers of data, citizens would expect a wide degree of discretion in the
+access to these data by the government. In these cases, the digital economy becomes a tool to facilitate surveillance and the presence of a comprehensive data protection law would not be enough
+to generate trust in the digital economy. As a result, firms would be left to deal with the additional compliance costs connected with the conditional regime without benefitting from the trust
+component derived from this framework.
+While previous studies found that restrictions on data transfers have a negative impact on
+digital services, this study provides more nuanced results for personal data that vary depending
+on the type of governance model adopted by the country and the presence of a comprehensive
+data protection regime. The latter results indicate that differences in regulatory rules regarding
+data can be offset. Therefore, more research is needed on the specific channels through which
+such regulatory heterogeneity between countries can be reduced.
+ACKNOWLEDGMENTS
+We thank Lillyana Sophia Daza Jaller for excellent research assistance, and Martin Molinuevo
+for helpful comments during the process. We especially thank Bernard Hoekman, Jo Francois,
+Douglas Nielson, Ben Shepherd, Sébastien Miroudot, Javier Lopez-Gonzalez and Hildegunn
+Nordås for helpful comments and feedback while writing the article, as well as Daria Taglioni,
+Sébastian Sáez, Vivien Foster, Gonzalo Varela, Mary Hallward-Driemeier and Matteo Fiorini for
+comments and reviews on earlier drafts.
+
+14679396, 2025, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/roie.12735 by Bibliotheque De L'Universite, Wiley Online Library on [28/04/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+FERRACANE and VAN DER MAREL
+
+FERRACANE and VAN DER MAREL
+
+DATA AVAILABILITY STATEMENT
+The data that support the findings of this study are available from the corresponding author upon
+reasonable request.
+ORCID
+Martina F. Ferracane
+
+https://orcid.org/0000-0002-4190-8133
+
+ENDNOTES
+1 This index is currently being updated under the name of the Digital Integration Index (DTI).
+2
+
+Other recent works, such as Daza Jaller et al. (2020), make a distinction between data regulations that are likely
+to adversely affect digital trade and other types of regulatory policies that can promote the development of digital
+markets by creating trust, such as regulatory policies related to data privacy and protection.
+3 Note that there is no globally accepted definition of personal data. For example, according to the US Office of
+Management and Budget guidance to federal agencies (OMB, 2007), personal data refers to “information that can
+be used to distinguish or trace an individual’s identity, either alone or when combined with other information
+that is linked or linkable to a specific individual”. The EU General Data Protection Regulation (GDPR) instead
+defines personal data more widely as “any information relating to an identified or identifiable natural person
+(“data subject”); an identifiable natural person is one who can be identified, directly or indirectly, in particular
+by reference to an identifier such as a name, an identification number, location data, an online identifier or to
+one or more factors specific to the physical, physiological, genetic, mental, economic, cultural or social identity
+of that natural person” (Art. 4). This uncertainty poses additional challenges to the analysis of the impact of data
+models on trade.
+4
+This figure has changed in 2023 with India’s recent enactment of a comprehensive data protection law.
+5 The European Court of Justice (ECJ) however repealed the Privacy Shield agreement in 2020. In July 2023,
+the European Commission adopted a decision of adequacy for the EU-US Data Privacy Framework, a new
+mechanism replacing the Privacy Shield.
+6 A recent survey involving SMEs in four European markets, representing 65 percent of EU GDP and 55 percent of
+SMEs in the EU, shows that travel services, business services and the arts, entertainment, and recreation in the
+form of media and entertainment are high utilizers of personal data too (Kearney, 2021).
+7
+We consider all the approaches above to select the four different categorizations. For instance, even though some
+sectors rank high on data-intensity (S/L ratio) measure, if they are not considered as a digital deliverable service
+according to the OECD-WTO-IMF Handbook and does not appear high in the rankings based on firms that have
+signed up on the PS framework, it is not considered as digital. This is the case for the transportation sector.
+8
+Regressions for the other groupings of digital sectors are therefore unreported, but results are consistent.
+
+REFERENCES
+Aaronson, S., & Leblond, P. (2018). Another digital divide: The rise of data realms and its implications for the WTO.
+Journal of International Economic Law, 21(2), 245–272.
+Acquisti, A., Taylor, C., & Wagman, L. (2016). The economics of privacy. Journal of Economic Literature, 54(2),
+442–492.
+Anderson, J., Borchert, I., Mattoo, A., & Yotov, Y. (2018). Dark costs, missing data: Shedding some light on services
+trade. European Economic Review, 105(C), 193–214.
+Anderson, J., Larch, M., & Yotov, Y. (2015). Growth and trade with frictions: A structural estimation framework.
+NBER Working Paper No. 21377, NBER, Cambridge MA.
+Azmeh, S., Foster, C., & Echavarri, J. (2019). The international trade regime and the quest for free digital trade.
+International Studies Review, 22(1), 1–22.
+Baier, S., & Bergstrand, J. (2007). Do free trade agreements actually increase members’ international trade? Journal
+of International Economics, 71, 2–95.
+Bauer, M., Erixon, F., Lee-Makiyama, H., & Krol, M. (2013). The economic importance of getting data protection
+right: Protecting privacy, transmitting data, moving commerce. Washington DC: US Chamber of Commerce.
+
+14679396, 2025, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/roie.12735 by Bibliotheque De L'Universite, Wiley Online Library on [28/04/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+260
+
+261
+
+Borchert, I., Gootiiz, B., Magdeleine, J., Marchetti, J., Mattoo, A., Rubio, E., & Shannon, E. (2019). Applied services
+trade policy: A guide to the services trade policy database and services trade restrictions index. WTO staff
+working paper (ERSD-2019-14), World Trade Organization.
+Borchert, I., Larch, M., Shikher, S., & Yotov, Y. (2021). The international trade and production database for
+estimation (ITPD-E). International Economics, 166, 140–166.
+Bradford, A. (2019). The Brussels effect: How the European Union rules the world (1st ed.). Oxford University Press.
+https://doi.org/10.1093/oso/9780190088583.001.0001
+Bradford, A. (2023). Digital empires: The global battle to regulate technology (1st ed.). Oxford University Press.
+Christensen, L., Colciago, A., Etro, F., & Rafert, G. (2013). The impact of the data protection regulation in the EU.
+Intertic Policy Paper, Intertic.
+Dai, M., Yotov, Y., & Zylkin, T. (2014). On the trade-diversion effects of free trade agreements. Economic Letters,
+122(2), 321–325.
+Daza Jaller, L., Gaillard, S., & Molinuevo, M. (2020). The regulation of digital trade: Key policies and international
+trends. Washington, DC: World Bank Group.
+Egger, P., & Tarlea, F. (2015). Multi-way clustering estimation of standard errors in gravity models. Economics
+Letters, 134, 144–147.
+Fally, T. (2015). Structural gravity and fixed effects. Journal of International Economics, 97(1), 76–85.
+Ferencz, J. (2019). The OECD digital services trade restrictiveness index. OECD Trade Policy Papers, No. 221, OECD
+Publishing, Paris.
+Ferracane, M. F. (Ed.). (2022). Digital Trade Integration Database. In European University Institute, UN Economic
+Commission for Latin America and the Caribbean, UN Economic and Social Commission for Asia and the
+Pacific, UN Economic Commission for Africa. London School of Economics, Hertie School, Bocconi University,
+Digital Cooperation Organization. https://dti.eui.eu/database/
+Ferracane, M., Kren, J., & van der Marel, E. (2020). Do data policy restrictions impact the productivity performance
+of firms and industries? Review of International Economics, 28(3), 676–722.
+Ferracane, M., Lee-Makiyama, H., & van der Marel, E. (2018). Digital trade restrictiveness index. European Centre
+for International Political Economy (ECIPE), Brussels.
+Ferracane, M. F., & van der Marel, E. (2021). Do data flows restrictions inhibit trade in services? Review of World
+Economics, 157, 727–776.
+Gao, H. S. (2018). Digital or trade? The contrasting approaches of China and US to digital trade. Journal of
+International Economic Law, 21(2), 297–321.
+Gao, H. S. (2019). Data Regulation with Chinese Characteristics. SMU Centre for AI & Data Governance Research
+Paper No. 2019/04; Singapore Management University School of Law Research Paper No. 28/2019.
+Goldfarb, A., & Trefler, D. (2018). AI and international trade, NBER Working Paper (p. 24254). NBER, Cambridge
+MA.
+Gurevich, T., & Herman, P. (2018). The dynamic gravity dataset: 1948–2016. USITC Working Paper 2018-02-A.
+Head, K., & Mayer, T. (2014). Chapter 3: Gravity equations: Workhorse, toolkit, and cookbook. In G. Gopinath,
+E. Helpman, & K. Rogoff (Eds.), Handbook of international economics (Vol. 4, pp. 131–195). Elsevier.
+Hodson, S. (2019). Applying WTO and FTA disciplines to data localization measures. World Trade Review, 18(4),
+579–607.
+Kearney. (2021). The economic costs of restricting the cross-border flow of data. ECIPE and Kearney report.
+La Porta, R., Lopez-de-Silanes, F., & Shleifer, A. (2008). The economic consequences of legal origins. Journal of
+Economic Literature, 46(2), 285–332.
+Lendle, A., Olarreaga, M., Schropp, S., & Vézina, P.-L. (2016). There goes gravity: eBay and the death of distance.
+The Economic Journal, 126(591), 406–441.
+Mattoo, A., & Meltzer, J. (2018). International data flows and privacy: The conflict and its resolution. Journal of
+International Economic Law, 21(4), 769–789.
+Melitz, J., & Toubal, F. (2019). Somatic distance, trust and trade. Review of International Economics, 27(3), 786–802.
+Meltzer, J. (2019). Governing digital trade. World Trade Review, 18(Special Issue1), S23–S48.
+Santos Silva, J., & Tenreyro, S. (2006). The log of gravity. The Review of Economics and Statistics, 88(4), 641–658.
+OECD-WTO-IMF. (2020). Handbook on measuring digital trade: Version 1. OECD-WTO-IMF.
+OMB (2007). Safeguarding against and responding to the breach of personally identifiable information, office of
+management and budget, OMB Memorandum M-07-16.
+
+14679396, 2025, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/roie.12735 by Bibliotheque De L'Universite, Wiley Online Library on [28/04/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+FERRACANE and VAN DER MAREL
+
+FERRACANE and VAN DER MAREL
+
+Santos Silva, J., & Tenreyro, S. (2010). On the existence of the maximum likelihood estimates in poisson regression.
+Economics Letters, 107(2), 310–312.
+Sen, N. (2018). Understanding the role of the WTO in international data flows: Taking the liberalization or the
+regulatory autonomy path? Journal of International Economic Law, Oxford University Press, 21(2), 323–348.
+Sun, R., & Trefler, D. (2023). The impact of AI and cross-border data regulation on international trade in digital
+services: A large language model. NBER Working Paper (p. 31925). NBER, Cambridge MA.
+WTO. (2018). World trade report 2018: The future of world trade: How digital technologies are transforming global
+commerce. World Trade Organization, Geneva.
+Yotov, Y. (2012). A simple solution to the distance puzzle in international trade. Economics Letters, 117(3), 794–798.
+Yotov, Y., Piermartini, R., Monteiro, J.-A., & Larch, M. (2016). An advanced guide to trade policy analysis: The
+structural gravity model. Geneva: UNCTAD and WTO.
+Zhang, J., Hassandoust, F., & Williams, J. E. (2020). Online customer Trust in the Context of the general data
+protection regulation (GDPR). Pacific Asia Journal of the Association for Information Systems, 12(1), 86–122.
+https://doi.org/10.17705/1pais.12104
+
+How to cite this article: Ferracane, M. F., & van der Marel, E. (2025). Governing
+personal data and trade in digital services. Review of International Economics, 33(1),
+243–264. https://doi.org/10.1111/roie.12735
+
+APPENDIX A
+T A B L E A1 Share of firms covered by Privacy Shield (PS).
+Sector description
+
+# organizations US census
+PS
+category
+
+# firms
+census
+
+Share companies
+covered by PS
+
+Information and
+2067
+communication technology
+
+Information
+
+79,662
+
+2.59
+
+Business and professional
+services
+
+617
+
+Professional, scientific,
+and technical services
+
+811,320
+
+0.08
+
+Healthcare
+
+230
+
+Healthcare and social
+assistance
+
+655,069
+
+0.04
+
+Media and entertainment
+
+120
+
+Arts, entertainment, and
+recreation
+
+130,107
+
+0.09
+
+Financial services
+
+117
+
+Finance and insurance
+
+238,408
+
+0.05
+
+Education
+
+102
+
+Educational services
+
+93,500
+
+0.11
+
+Travel and tourism
+
+63
+
+Travel and tourism
+
+74,929
+
+0.08
+
+Distribution and logistics
+
+34
+
+Transportation and
+warehousing
+
+185,028
+
+0.02
+
+Retail trade
+
+29
+
+Retail trade
+
+647,927
+
+0.00
+
+Energy
+
+12
+
+Utilities
+
+5957
+
+0.20
+
+Design and construction
+
+11
+
+Construction
+
+701,477
+
+0.00
+
+Food and beverages
+
+11
+
+Accommodation and
+food
+
+539,886
+
+0.00
+
+Wholesale trade
+
+9
+
+Wholesale trade
+
+298,127
+
+0.00
+
+Source: Authors’ calculations using privacyshield.gov and US Census.
+
+14679396, 2025, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/roie.12735 by Bibliotheque De L'Universite, Wiley Online Library on [28/04/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+262
+
+263
+
+T A B L E A2 List of selected sectors for digital services.
+IPD-E
+code
+
+Sector
+description
+
+EBOPS
+2010
+
+ISIC
+rev. 4
+
+Dig
+1
+
+Dig
+2
+
+Dig
+3
+
+Dig
+4
+
+Dig.
+Deliv.
+
+S/L
+ratio
+
+Share
+PS
+
+162
+
+Telecom,
+computer, and
+information
+
+SI + SK1
+
+J
+
+✓
+
+✓
+
+✓
+
+✓
+
+Yes
+
+4.10
+
+2.59
+
+163
+
+Other business
+services
+
+SJ excl SJ34
+
+M+N
+
+✓
+
+✓
+
+✓
+
+✓
+
+Yes
+
+1.08
+
+0.08
+
+159
+
+Insurance and
+pension
+services
+
+SF
+
+K(60%)
+
+✓
+
+✓
+
+✓
+
+Yes
+
+2.88
+
+0.05
+
+160
+
+Financial
+services
+
+SG
+
+K(40%)
+
+✓
+
+✓
+
+✓
+
+Yes
+
+2.87
+
+0.05
+
+164
+
+Heritage and
+recreational
+services
+
+SK23
+
+R
+
+✓
+
+✓
+
+Yes
+
+0.54
+
+0.09
+
+169
+
+Trade-related
+services
+
+SJ34
+
+G
+
+✓
+
+✓
+
+Yes
+
+0.51
+
+0.02
+
+161
+
+Charges for the
+use of IPR
+
+SH
+
+–
+
+✓
+
+Yes
+
+–
+
+–
+
+165
+
+Health services
+
+SDB1 + SK21
+
+Q
+
+✓
+
+Yes
+
+0.22
+
+0.04
+
+166
+
+Education
+services
+
+SDB2 + SK22
+
+P
+
+✓
+
+Yes
+
+0.28
+
+0.11
+
+170
+
+Other personal
+services
+
+SK24
+
+S
+
+✓
+
+Yes
+
+0.09
+
+-
+
+154
+
+Manufacturing
+services
+
+SA
+
+–
+
+No
+
+–
+
+–
+
+155
+
+Maintenance
+and repair
+
+SB
+
+–
+
+No
+
+–
+
+–
+
+156
+
+Transport
+
+SC
+
+H
+
+No
+
+0.58
+
+-
+
+157
+
+Travel
+
+SDA + SDB3
+
+I
+
+No
+
+0.04
+
+0.08
+
+158
+
+Construction
+
+SE
+
+F
+
+No
+
+0.06
+
+0.00
+
+167
+
+Government
+goods and
+services
+
+SL
+
+–
+
+No
+
+–
+
+–
+
+168
+
+Services not
+allocated
+
+SN
+
+–
+
+No
+
+0.18
+
+–
+
+Source: Authors’.
+
+14679396, 2025, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/roie.12735 by Bibliotheque De L'Universite, Wiley Online Library on [28/04/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+FERRACANE and VAN DER MAREL
+
+F I G U R E A1 Global distribution of data models (2023). [Colour figure can be viewed at
+wileyonlinelibrary.com]
+
+F I G U R E A2 Global distribution of data protection regimes (2023). [Colour figure can be viewed at
+wileyonlinelibrary.com]
+
+14679396, 2025, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/roie.12735 by Bibliotheque De L'Universite, Wiley Online Library on [28/04/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+
+FERRACANE and VAN DER MAREL
+264
+
+
