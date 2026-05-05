@@ -46,8 +46,12 @@ def final_merge():
     
     # C. Calculate same_model
     print("Calculating same_model dummy...")
-    df['same_model'] = (df['model1'] == df['model2']).astype(int)
-    # Handle NAs in models if any
+    # Clean models for comparison
+    m1_clean = df['model1'].astype(str).str.strip().str.lower()
+    m2_clean = df['model2'].astype(str).str.strip().str.lower()
+    
+    df['same_model'] = (m1_clean == m2_clean).astype(int)
+    # Handle NAs
     df.loc[df['model1'].isna() | df['model2'].isna(), 'same_model'] = np.nan
     
     # D. Join IDP
@@ -95,22 +99,35 @@ def final_merge():
     flow_cols = ['services export', 'digital exports', 'services import', 'digital imports']
     df[flow_cols] = df[flow_cols].fillna(0)
     
+    # IDP: Ensure it's NaN if merge failed, which is already the case with how='left'
+    
     # Final cleanup to match template exactly
-    # Template: ['year', 'ccode1', 'country.x', 'ccode2', 'country.y', 'services import', 'services export', 'digital imports', 'digital exports', 'IDP']
     df = df.rename(columns={
         'CCode1': 'ccode1',
-        'country1': 'country.x',
         'CCode2': 'ccode2',
-        'country2': 'country.y',
         'AbsIdealDiff': 'IDP'
     })
     
-    final_cols = ['year', 'ccode1', 'country.x', 'ccode2', 'country.y', 'services import', 'services export', 'digital imports', 'digital exports', 'IDP', 'same_model', 'is_certified']
+    final_cols = [
+        'year', 'ccode1', 'country1', 'model1', 
+        'ccode2', 'country2', 'model2', 
+        'services import', 'services export', 'digital imports', 'digital exports', 
+        'IDP', 'same_model', 'is_certified_event', 'is_certified_state', 'certification_year'
+    ]
     df = df[final_cols]
     
-    output_path = 'data/raw/structure/Digital flows dataset.xlsx'
+    # Remove duplicates if any (keep first)
+    initial_len = len(df)
+    df = df.drop_duplicates(subset=['year', 'country1', 'country2'])
+    if len(df) < initial_len:
+        print(f"Removed {initial_len - len(df)} duplicate rows.")
+    
+    # Save as compressed CSV as requested (Excel is too slow for large datasets)
+    output_path = 'data/processed/digital_flows.csv.zip'
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
-    df.to_excel(output_path, index=False)
+    
+    # compression='zip' will wrap the CSV into a zip file automatically
+    df.to_csv(output_path, index=False, compression={'method': 'zip', 'archive_name': 'digital_flows.csv'})
     print(f"Final dataset exported to {output_path}. Total rows: {len(df)}")
 
 if __name__ == "__main__":

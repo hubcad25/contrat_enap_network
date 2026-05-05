@@ -13,7 +13,7 @@ def process_wto_data():
     
     # Ferracane 2024 / EBOPS Definitions
     # BPM5 (EBOPS 2002) - Digitally Deliverable Services
-    digital_codes_bpm5 = ['245', '253', '260', '262', '266', '268', '287']
+    digital_codes_bpm5 = ['S245', 'S253', 'S260', 'S262', 'S266', 'S268', 'S287']
     total_code_bpm5 = 'S200'
     
     # BPM6 (EBOPS 2010) - Digitally Deliverable Services
@@ -68,7 +68,7 @@ def process_wto_data():
         with zipfile.ZipFile(zip_path, 'r') as z:
             with z.open(filename) as f:
                 # Use chunks to save memory
-                chunk_iter = pd.read_csv(f, chunksize=1000000)
+                chunk_iter = pd.read_csv(f, chunksize=1000000, dtype={'Reporter': str, 'Partner': str, 'Item_code': str})
                 for chunk in chunk_iter:
                     # Filter years and flows
                     chunk = chunk[(chunk['Year'].isin(year_range)) & (chunk['Flow'].isin(['X', 'M']))]
