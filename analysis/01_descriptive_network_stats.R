@@ -12,18 +12,40 @@ library(scales)
 df <- read_csv("/home/hubcad25/opubliq/repos/contrat_enap_network/data/processed/digital_flows.csv")
 
 # --- 1. Évolution du nombre de liens de certification ---
-cert_evolution <- df %>%
+# Calcul de la réciprocité en même temps
+reciprocity_counts <- df %>%
+  select(year, country1, country2, is_certified_state) %>%
+  inner_join(
+    df %>% select(year, country1, country2, is_certified_state),
+    by = c("year" = "year", "country1" = "country2", "country2" = "country1"),
+    suffix = c("_orig", "_dest")
+  ) %>%
+  filter(is_certified_state_orig == 1) %>%
   group_by(year) %>%
-  summarise(total_certifications = sum(is_certified_state, na.rm = TRUE))
+  summarise(
+    total_certifications = n(),
+    reciprocal_certifications = sum(is_certified_state_dest, na.rm = TRUE),
+    .groups = "drop"
+  )
 
-p1 <- ggplot(cert_evolution, aes(x = year, y = total_certifications)) +
-  geom_line(color = "#0072B2", linewidth = 1) +
-  geom_point(color = "#0072B2") +
+# Conversion en format long pour ggplot
+cert_evolution_long <- reciprocity_counts %>%
+  pivot_longer(cols = c(total_certifications, reciprocal_certifications), 
+               names_to = "type", values_to = "count")
+
+p1 <- ggplot(cert_evolution_long, aes(x = year, y = count, color = type)) +
+  geom_line(linewidth = 1) +
+  geom_point() +
+  scale_color_manual(
+    values = c("total_certifications" = "#0072B2", "reciprocal_certifications" = "#00A087"),
+    labels = c("Total", "Réciproques")
+  ) +
   labs(
-    title = "Évolution du nombre total de certifications",
-    subtitle = "Nombre de liens dirigés de certification actifs par année",
+    title = "Évolution du nombre de certifications",
+    subtitle = "Nombre total vs liens réciproques (A <-> B) par année",
     x = "Année",
-    y = "Nombre de certifications"
+    y = "Nombre de liens",
+    color = "Type de lien"
   ) +
   clessnize::theme_clean_light()
 
@@ -46,24 +68,10 @@ p2 <- ggplot(df %>% filter(`digital exports` > 0), aes(x = as.factor(is_certifie
 
 ggsave("/home/hubcad25/opubliq/repos/contrat_enap_network/analysis/plots/exports_vs_certification.png", p2, width = 10, height = 6)
 
-# --- 3. Analyse de la réciprocité ---
-# Un lien est réciproque si A certifie B ET B certifie A la même année
-reciprocity_data <- df %>%
-  select(year, country1, country2, is_certified_state) %>%
-  inner_join(
-    df %>% select(year, country1, country2, is_certified_state),
-    by = c("year" = "year", "country1" = "country2", "country2" = "country1"),
-    suffix = c("_orig", "_dest")
-  ) %>%
-  filter(is_certified_state_orig == 1) %>%
-  group_by(year) %>%
-  summarise(
-    total_links = n(),
-    reciprocal_links = sum(is_certified_state_dest, na.rm = TRUE),
-    reciprocity_rate = reciprocal_links / total_links
-  )
-
-p3 <- ggplot(reciprocity_data, aes(x = year, y = reciprocity_rate)) +
+# --- 3. Analyse de la réciprocité (Taux) ---
+p3 <- reciprocity_counts %>%
+  mutate(reciprocity_rate = reciprocal_certifications / total_certifications) %>%
+  ggplot(aes(x = year, y = reciprocity_rate)) +
   geom_area(fill = "#00A087", alpha = 0.3) +
   geom_line(color = "#00A087", linewidth = 1) +
   labs(
