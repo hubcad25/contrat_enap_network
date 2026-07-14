@@ -79,7 +79,7 @@ p <- ggplot(report_data, aes(x = year, y = country1)) +
       width = 80
     )
   ) +
-  clessnize::theme_clean_light() +
+  clessnize::theme_clean_light(base_size = 15) +
   theme(
     # Background must be white
     plot.background = element_rect(fill = "white", color = NA),
@@ -96,7 +96,7 @@ plot_height <- max(6, n_countries * 0.2)
 ggsave(
   "data/validation/idp_na_heatmap.png",
   plot = p,
-  width = 12,
-  height = plot_height,
+  width = 8,
+  height = 6,
   dpi = 300
 )
