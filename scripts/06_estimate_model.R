@@ -36,14 +36,17 @@ df_survival <- df %>%
   # Ou plus simple: on garde si is_certified_state == 0 OU si c'est l'année de l'événement
   filter(is_certified_state == 0 | is_certified_event == 1) %>%
   # Mais on doit s'assurer de ne pas garder les années APRÈS l'événement si l'état reste à 1
-  # En fait, la condition ci-dessus garde l'année de l'événement (event=1, state=1)
-  # et toutes les années avant (event=0, state=0).
-  # Si une dyade a plusieurs années avec state=1 (après l'événement), elles seront exclues par is_certified_event == 0
-  # SAUF si event est marqué 1 plusieurs fois (ce qui ne devrait pas arriver).
   filter(cumsum(is_certified_event) <= 1) %>%
   ungroup()
 
-# 3. Estimer le modèle logit
+# 3. Normaliser les variables indépendantes (z-score)
+# Pour que les coefficients soient comparables (effet d'un écart-type)
+# et éviter des coefficients minuscules pour les flux commerciaux en $
+vars_to_scale <- c("IDP", "services_import", "services_export", "digital_imports", "digital_exports")
+df_survival <- df_survival %>%
+  mutate(across(all_of(vars_to_scale), ~ as.numeric(scale(.))))
+
+# 4. Estimer le modèle logit
 # Variables indépendantes : IDP, same_model, services_import, services_export, digital_imports, digital_exports
 # On inclut des effets fixes pour l'année pour contrôler les tendances temporelles
 model <- feglm(
@@ -54,7 +57,7 @@ model <- feglm(
   cluster = ~dyad_id
 )
 
-# 4. Rapport des résultats
+# 5. Rapport des résultats
 summary_model <- summary(model)
 print(summary_model)
 
@@ -63,7 +66,7 @@ sink("output/model_results.txt")
 print(summary_model)
 sink()
 
-# 5. Visualisation des résultats (coefficients plot)
+# 6. Visualisation des résultats (coefficients plot)
 # Extraire les coefficients et les intervalles de confiance
 coef_df <- data.frame(
   term = names(coef(model)),
@@ -76,15 +79,15 @@ coef_df <- data.frame(
     color = ifelse(estimate > 0, "#00A087", "#f0695a") # Green for positive, Red for negative
   )
 
-# Traduire les noms des variables pour le graphique
+# Traduire les noms des variables pour le graphique (en français)
 coef_df <- coef_df %>%
   mutate(term = case_when(
-    term == "IDP" ~ "Ideal Distance (UN)",
-    term == "same_model" ~ "Same Governance Model",
-    term == "services_import" ~ "Services Imports",
-    term == "services_export" ~ "Services Exports",
-    term == "digital_imports" ~ "Digital Imports",
-    term == "digital_exports" ~ "Digital Exports",
+    term == "IDP" ~ "Distance idéale (ONU)",
+    term == "same_model" ~ "Même modèle de gouvernance",
+    term == "services_import" ~ "Importations de services",
+    term == "services_export" ~ "Exportations de services",
+    term == "digital_imports" ~ "Importations numériques",
+    term == "digital_exports" ~ "Exportations numériques",
     TRUE ~ term
   ))
 
@@ -94,11 +97,11 @@ p <- ggplot(coef_df, aes(x = estimate, y = reorder(term, estimate))) +
   geom_point(aes(color = color), size = 3) +
   scale_color_identity() +
   labs(
-    title = "Coefficients of Certification Event Model",
-    subtitle = "Discrete-time survival model (Logit with year fixed effects)",
-    x = "Log-odds Estimate",
+    title = "Coefficients du modèle d'événement de certification",
+    subtitle = "Modèle de survie en temps discret (Logit avec effets fixes par année)",
+    x = "Estimation (Log-odds, variables standardisées)",
     y = NULL,
-    caption = "Clustered standard errors by dyad. Error bars represent 95% CI."
+    caption = "Erreurs-types robustes par dyade. Les barres représentent l'IC à 95%."
   ) +
   theme_clean_light()
 

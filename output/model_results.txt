@@ -4,12 +4,12 @@ Observations: 868,922
 Fixed-effects: year: 26
 Standard-errors: Clustered (dyad_id) 
                  Estimate Std. Error   z value   Pr(>|z|)    
-IDP             -1.201479   0.058614 -20.49808  < 2.2e-16 ***
+IDP             -0.861759   0.042041 -20.49808  < 2.2e-16 ***
 same_model       0.411278   0.061830   6.65177 2.8960e-11 ***
-services_import  0.000086   0.000028   3.04031 2.3634e-03 ** 
-services_export  0.000143   0.000038   3.80834 1.3990e-04 ***
-digital_imports -0.000037   0.000030  -1.22005 2.2245e-01    
-digital_exports -0.000184   0.000062  -2.97242 2.9546e-03 ** 
+services_import  0.078144   0.025703   3.04031 2.3634e-03 ** 
+services_export  0.131194   0.034449   3.80834 1.3990e-04 ***
+digital_imports -0.022514   0.018453  -1.22005 2.2245e-01    
+digital_exports -0.114977   0.038681  -2.97242 2.9546e-03 ** 
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Log-Likelihood: -13,749.7   Adj. Pseudo R2: 0.077046
