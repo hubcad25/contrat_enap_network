@@ -107,15 +107,15 @@ p4 <- df %>%
   theme(legend.position = "none")
 
 # --- 5. Boxplot: IDP par statut de certification ---
-# On compare l'IDP des pays exportateurs pour les liens certifiés vs non-certifiés
+# On compare l'IDP (Distance idéale ONU) pour les liens certifiés vs non-certifiés
 p5 <- df %>%
   filter(!is.na(IDP)) %>%
   ggplot(aes(x = as.factor(is_certified_state), y = IDP)) +
   geom_boxplot(aes(fill = as.factor(is_certified_state)), outlier.alpha = 0.2) +
   scale_fill_manual(values = c("0" = "#aaaaaa", "1" = "#00A087"), labels = c("Non-certifié", "Certifié")) +
   labs(
-    title = "Niveau de protection des données (IDP) et certification",
-    subtitle = "IDP de l'exportateur selon le statut de certification du lien",
+    title = "Distance politique (IDP) et certification",
+    subtitle = "Distance entre les points idéaux (ONU) selon le statut du lien",
     x = "Statut de certification du lien",
     y = "IDP",
     fill = "Lien certifié"
