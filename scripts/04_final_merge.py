@@ -15,8 +15,8 @@ def final_merge():
     attr = pd.read_excel('data/raw/structure/attribute.xlsx')
     
     # 3. Load IDP
-    print("Loading IDP data...")
-    idp = pd.read_csv('data/interim/idp_dyads_clean.csv')
+    print("Loading IDP data (imputed country points)...")
+    idp = pd.read_csv('data/interim/idp_countries_imputed.csv')
     
     # 4. Load WTO
     print("Loading WTO data...")
@@ -55,15 +55,30 @@ def final_merge():
     df.loc[df['model1'].isna() | df['model2'].isna(), 'same_model'] = np.nan
     
     # D. Join IDP
-    print("Merging IDP data...")
-    # IDP is already in dyad format (ccode1, ccode2, year)
+    print("Merging IDP data and calculating AbsIdealDiff...")
+    # Join for Country 1 (ccode1)
     df = pd.merge(
         df, 
-        idp[['year', 'ccode1', 'ccode2', 'AbsIdealDiff']], 
-        left_on=['year', 'CCode1', 'CCode2'], 
-        right_on=['year', 'ccode1', 'ccode2'], 
+        idp[['year', 'ccode', 'IdealPointFP']], 
+        left_on=['year', 'CCode1'], 
+        right_on=['year', 'ccode'], 
         how='left'
-    ).drop(['ccode1', 'ccode2'], axis=1)
+    ).rename(columns={'IdealPointFP': 'IdealPointFP1'}).drop('ccode', axis=1)
+    
+    # Join for Country 2 (ccode2)
+    df = pd.merge(
+        df, 
+        idp[['year', 'ccode', 'IdealPointFP']], 
+        left_on=['year', 'CCode2'], 
+        right_on=['year', 'ccode'], 
+        how='left'
+    ).rename(columns={'IdealPointFP': 'IdealPointFP2'}).drop('ccode', axis=1)
+    
+    # Calculate AbsIdealDiff (IDP)
+    df['IDP'] = np.abs(df['IdealPointFP1'] - df['IdealPointFP2'])
+    
+    # Drop intermediate columns
+    df = df.drop(['IdealPointFP1', 'IdealPointFP2'], axis=1)
     
     # E. Join WTO
     # WTO uses ISO codes (alpha-2 or alpha-3 usually, but our processed file has isocode)
@@ -104,8 +119,7 @@ def final_merge():
     # Final cleanup to match template exactly
     df = df.rename(columns={
         'CCode1': 'ccode1',
-        'CCode2': 'ccode2',
-        'AbsIdealDiff': 'IDP'
+        'CCode2': 'ccode2'
     })
     
     final_cols = [
