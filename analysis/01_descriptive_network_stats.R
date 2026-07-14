@@ -117,7 +117,7 @@ p5 <- df %>%
     title = "Niveau de protection des données (IDP) et certification",
     subtitle = "IDP de l'exportateur selon le statut de certification du lien",
     x = "Statut de certification du lien",
-    y = "Index de Protection des Données (IDP)",
+    y = "IDP",
     fill = "Lien certifié"
   ) +
   clessnize::theme_clean_light()
