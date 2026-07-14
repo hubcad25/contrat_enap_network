@@ -106,4 +106,20 @@ p4 <- df %>%
   clessnize::theme_clean_light() +
   theme(legend.position = "none")
 
-ggsave("/home/hubcad25/opubliq/repos/contrat_enap_network/analysis/plots/cert_prop_by_model.png", p4, width = 10, height = 6)
+# --- 5. Boxplot: IDP par statut de certification ---
+# On compare l'IDP des pays exportateurs pour les liens certifiés vs non-certifiés
+p5 <- df %>%
+  filter(!is.na(IDP)) %>%
+  ggplot(aes(x = as.factor(is_certified_state), y = IDP)) +
+  geom_boxplot(aes(fill = as.factor(is_certified_state)), outlier.alpha = 0.2) +
+  scale_fill_manual(values = c("0" = "#aaaaaa", "1" = "#00A087"), labels = c("Non-certifié", "Certifié")) +
+  labs(
+    title = "Niveau de protection des données (IDP) et certification",
+    subtitle = "IDP de l'exportateur selon le statut de certification du lien",
+    x = "Statut de certification du lien",
+    y = "Index de Protection des Données (IDP)",
+    fill = "Lien certifié"
+  ) +
+  clessnize::theme_clean_light()
+
+ggsave("/home/hubcad25/opubliq/repos/contrat_enap_network/analysis/plots/idp_vs_certification.png", p5, width = 10, height = 6)
