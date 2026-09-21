@@ -1,5 +1,4 @@
 library(tidyverse)
-library(clessnize)
 library(showtext)
 library(sysfonts)
 
@@ -79,7 +78,7 @@ p <- ggplot(report_data, aes(x = year, y = country1)) +
       width = 80
     )
   ) +
-  clessnize::theme_clean_light(base_size = 15) +
+  theme_minimal(base_size = 15) +
   theme(
     # Background must be white
     plot.background = element_rect(fill = "white", color = NA),

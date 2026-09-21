@@ -10,7 +10,6 @@
 # ==============================================================================
 
 library(tidyverse)
-library(clessnize)
 library(scales)
 
 # --- Couleurs ---
@@ -141,7 +140,7 @@ p <- ggplot(plot_data, aes(x = certificateur, y = prop, fill = certifie)) +
       width = 80
     )
   ) +
-  clessnize::theme_clean_light()
+  theme_minimal()
 
 ggsave("analysis/plots/safe_harbor_certification_targets.png",
        p, width = 10, height = 6.5, dpi = 300)

@@ -9,7 +9,6 @@
 # ==============================================================================
 
 library(tidyverse)
-library(clessnize)
 
 # --- Couleurs ---
 dashboard_colors <- list(

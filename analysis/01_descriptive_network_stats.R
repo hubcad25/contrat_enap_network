@@ -5,7 +5,6 @@
 # ==============================================================================
 
 library(tidyverse)
-library(clessnize)
 library(scales)
 
 # --- Chargement des données ---
@@ -47,7 +46,7 @@ p1 <- ggplot(cert_evolution_long, aes(x = year, y = count, color = type)) +
     y = "Nombre de liens",
     color = "Type de lien"
   ) +
-  clessnize::theme_clean_light()
+  theme_minimal()
 
 ggsave("analysis/plots/certification_evolution.png", p1, width = 10, height = 6)
 
@@ -64,7 +63,7 @@ p2 <- ggplot(df %>% filter(`digital exports` > 0), aes(x = as.factor(is_certifie
     y = "Digital Exports (log10)",
     fill = "Lien certifié"
   ) +
-  clessnize::theme_clean_light()
+  theme_minimal()
 
 ggsave("analysis/plots/exports_vs_certification.png", p2, width = 10, height = 6)
 
@@ -80,7 +79,7 @@ p3 <- reciprocity_counts %>%
     x = "Année",
     y = "Taux de réciprocité"
   ) +
-  clessnize::theme_clean_light()
+  theme_minimal()
 
 ggsave("analysis/plots/reciprocity_evolution.png", p3, width = 10, height = 6)
 
@@ -103,7 +102,7 @@ p4 <- df %>%
     x = "Modèle",
     y = "% de liens certifiés"
   ) +
-  clessnize::theme_clean_light() +
+  theme_minimal() +
   theme(legend.position = "none")
 
 # --- 5. Boxplot: IDP par statut de certification ---
@@ -120,6 +119,6 @@ p5 <- df %>%
     y = "IDP",
     fill = "Lien certifié"
   ) +
-  clessnize::theme_clean_light()
+  theme_minimal()
 
 ggsave("analysis/plots/idp_vs_certification.png", p5, width = 10, height = 6)

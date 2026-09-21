@@ -1,6 +1,5 @@
 library(tidyverse)
 library(fixest)
-library(clessnize)
 
 # 1. Lire les données
 data_path <- "data/processed/digital_flows.csv.zip"
@@ -103,7 +102,7 @@ p <- ggplot(coef_df, aes(x = estimate, y = reorder(term, estimate))) +
     y = NULL,
     caption = "Erreurs-types robustes par dyade. Les barres représentent l'IC à 95%."
   ) +
-  theme_clean_light()
+  theme_minimal()
 
 ggsave("output/coefficients_plot.png", p, width = 8, height = 6, dpi = 300)
 
