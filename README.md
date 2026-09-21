@@ -84,6 +84,3 @@ Deux variantes de la certification sont disponibles dans `digital_flows.csv` :
 - `is_certified_state` — la dyade est certifiée cette année-là (stock, reste à 1 une fois certifiée)
 - `is_certified_event` — l'année où la certification a lieu (événement, utilisé comme VD dans le modèle de survie)
 
-## Suivi de tâches
-
-Le projet utilise [beads](https://github.com/steveyegge/beads) (`.beads/`) pour le suivi des issues (`bd ready`, `bd show <id>`, etc.) — optionnel, peut être ignoré.

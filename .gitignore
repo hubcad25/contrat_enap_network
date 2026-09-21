@@ -2,3 +2,5 @@ data/raw/
 data/processed/digital_flows.csv
 venv/
 analysis/venv/
+.beads/
+AGENTS.md
