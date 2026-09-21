@@ -13,7 +13,7 @@ library(htmlwidgets)
 TARGET_YEAR <- 2020
 
 # --- Chargement des données ---
-df <- read_csv("/home/hubcad25/opubliq/repos/contrat_enap_network/data/processed/digital_flows.csv")
+df <- read_csv("data/processed/digital_flows.csv")
 
 # 1. Liens de certification (VD)
 links_data <- df %>%
@@ -98,4 +98,4 @@ p <- plot_ly() %>%
   )
 
 # Sauvegarde
-saveWidget(p, "/home/hubcad25/opubliq/repos/contrat_enap_network/analysis/network_map_2020.html")
+saveWidget(p, "analysis/network_map_2020.html")

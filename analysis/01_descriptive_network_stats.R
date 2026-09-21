@@ -9,7 +9,7 @@ library(clessnize)
 library(scales)
 
 # --- Chargement des données ---
-df <- read_csv("/home/hubcad25/opubliq/repos/contrat_enap_network/data/processed/digital_flows.csv")
+df <- read_csv("data/processed/digital_flows.csv")
 
 # --- 1. Évolution du nombre de liens de certification ---
 # Calcul de la réciprocité en même temps
@@ -49,7 +49,7 @@ p1 <- ggplot(cert_evolution_long, aes(x = year, y = count, color = type)) +
   ) +
   clessnize::theme_clean_light()
 
-ggsave("/home/hubcad25/opubliq/repos/contrat_enap_network/analysis/plots/certification_evolution.png", p1, width = 10, height = 6)
+ggsave("analysis/plots/certification_evolution.png", p1, width = 10, height = 6)
 
 # --- 2. Comparaison des flux d'exports (Log Scale) ---
 # On compare les paires certifiées vs non-certifiées
@@ -66,7 +66,7 @@ p2 <- ggplot(df %>% filter(`digital exports` > 0), aes(x = as.factor(is_certifie
   ) +
   clessnize::theme_clean_light()
 
-ggsave("/home/hubcad25/opubliq/repos/contrat_enap_network/analysis/plots/exports_vs_certification.png", p2, width = 10, height = 6)
+ggsave("analysis/plots/exports_vs_certification.png", p2, width = 10, height = 6)
 
 # --- 3. Analyse de la réciprocité (Taux) ---
 p3 <- reciprocity_counts %>%
@@ -82,7 +82,7 @@ p3 <- reciprocity_counts %>%
   ) +
   clessnize::theme_clean_light()
 
-ggsave("/home/hubcad25/opubliq/repos/contrat_enap_network/analysis/plots/reciprocity_evolution.png", p3, width = 10, height = 6)
+ggsave("analysis/plots/reciprocity_evolution.png", p3, width = 10, height = 6)
 
 # --- 4. Proportion de certification par model1 ---
 p4 <- df %>%
@@ -122,4 +122,4 @@ p5 <- df %>%
   ) +
   clessnize::theme_clean_light()
 
-ggsave("/home/hubcad25/opubliq/repos/contrat_enap_network/analysis/plots/idp_vs_certification.png", p5, width = 10, height = 6)
+ggsave("analysis/plots/idp_vs_certification.png", p5, width = 10, height = 6)

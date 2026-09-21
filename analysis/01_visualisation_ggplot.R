@@ -78,7 +78,7 @@ theme_dashboard_light <- function(base_size = 32) {
 }
 
 # --- 1. Chargement des données ---
-data_path <- "/home/hubcad25/opubliq/repos/contrat_enap_network/data/processed/digital_flows.csv"
+data_path <- "data/processed/digital_flows.csv"
 df <- read_csv(data_path)
 
 # Nettoyage et définition du réseau binaire

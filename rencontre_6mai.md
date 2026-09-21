@@ -23,4 +23,5 @@
     - Variables standardisées pour faciliter l'interprétation.
     - Résultats clés : effet négatif de la distance politique (IDP) et effet positif du partage d'un même modèle de gouvernance.
     - Graphique des coefficients disponible dans `output/coefficients_plot.png`.
-
+- Je m'étais mis une note sur Danemark/Pays-Bas, mais je me rappelle plus vraiment ce qu'on voulait valider sur ces 2 pays
+- 

@@ -1,2 +1,4 @@
-data/
+data/raw/
+data/processed/digital_flows.csv
 venv/
+analysis/venv/
